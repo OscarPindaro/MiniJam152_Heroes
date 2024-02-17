@@ -16,7 +16,7 @@ func _player_interact(item):
 		return null
 	if item.Cooking != null:
 		return item
-	item.side_dish = side_dish
+	item.set_side(side_dish)
 	return item
 
 

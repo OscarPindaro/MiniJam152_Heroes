@@ -16,7 +16,7 @@ func _player_interact(item):
 		return null
 	if item.Cooking != null:
 		return item
-	item.Cooking = cooking
+	item.set_coocking(cooking)
 	return item
 
 
