@@ -4,7 +4,6 @@ extends StaticBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export var cooking : String = ""
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,11 +13,10 @@ func _ready():
 func _player_interact(item: Item) -> Item:
 	if item == null:
 		return null
-	if item.Cooking != null:
-		return item
-	item.set_coocking(cooking)
-	return item
-
+	# delete the item
+	item.queue_free()
+	return null
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

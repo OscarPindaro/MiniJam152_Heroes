@@ -11,7 +11,7 @@ export var main = ""
 func _ready():
 	pass # Replace with function body.
 
-func _player_interact(item):
+func _player_interact(item: Item) -> Item:
 	if item != null:
 		return item
 	# missing code because i need maff code
