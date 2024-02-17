@@ -1,11 +1,13 @@
 extends Area2D
 
+const playerGroup = "player"
+
 # To assign before adding as a child
 var sprite : SpriteFrames
 var destination : Vector2
 var speed : float
-var likes : Array
-var dislikes : Array
+var preferences : Array
+var dish_texture : Texture
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,6 +15,8 @@ func _ready():
 	if sprite != null:
 		$AnimatedSprite.frames = sprite
 		$AnimatedSprite.play()
+	if dish_texture != null:
+		$CompositeBaloon/DishSprite.texture = dish_texture
 
 func _physics_process(delta):
 	if $NavigationAgent2D.is_target_reached():
@@ -24,3 +28,13 @@ func _physics_process(delta):
 	var movement_delta = speed * delta
 	var velocity = direction * movement_delta
 	global_position = global_position + velocity
+
+
+func _on_eroe_body_entered(body):
+	if body.is_in_group(playerGroup):
+		$CompositeBaloon.visible = true
+
+
+func _on_eroe_body_exited(body):
+	if body.is_in_group(playerGroup):
+		$CompositeBaloon.visible = false

@@ -4,7 +4,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 50.0
+radius = 75.0
 
 [sub_resource type="SpriteFrames" id=2]
 resource_local_to_scene = true
@@ -25,3 +25,17 @@ shape = SubResource( 1 )
 frames = SubResource( 2 )
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="CompositeBaloon" type="Node2D" parent="."]
+visible = false
+position = Vector2( 0, -64 )
+
+[node name="BaloonSprite" type="Sprite" parent="CompositeBaloon"]
+texture = ExtResource( 2 )
+
+[node name="DishSprite" type="Sprite" parent="CompositeBaloon"]
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_eroe_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_eroe_body_exited"]
