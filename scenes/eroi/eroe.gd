@@ -83,16 +83,23 @@ func _ready():
 		$AnimatedSprite.frames = sprite
 		$AnimatedSprite.play()
 	
-	# Populate baloon box by instancing tag_texture(s)
+	# Populate baloon box by getting the correct textures
 	if preferences != null:
-		for dish_part in preferences:
-			var tag = preferences[dish_part]
-			var individual_tag = tag_texture_scene.instance()
-			
-			var texture_path = textures_base_path + tag + textures_extension
-			individual_tag.tag_texture = load(texture_path)
-			
-			$BaloonUI/TagsContainer.add_child(individual_tag)
+		var mainTexture = load(textures_base_path + preferences["main"] + textures_extension)
+		var cookingTexture = load(textures_base_path + preferences["cooking"] + textures_extension)
+		var sideTexture = load(textures_base_path + preferences["side"] + textures_extension)
+		
+		$BaloonUI/Sprites/MainTexture.texture = mainTexture
+		$BaloonUI/Sprites/CookingTexture.texture = cookingTexture
+		$BaloonUI/Sprites/SideTexture.texture = sideTexture
+		
+		
+		#for dish_part in preferences:
+			#var tag = preferences[dish_part]
+			#var individual_tag = tag_texture_scene.instance()
+			#var texture_path = textures_base_path + tag + textures_extension
+			#individual_tag.tag_texture = load(texture_path)
+			#$BaloonUI/TagsContainer.add_child(individual_tag)
 
 func _physics_process(delta):
 	if $NavigationAgent2D.is_target_reached():
