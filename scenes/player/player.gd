@@ -22,6 +22,8 @@ var base_zoom = Vector2.ZERO
 
 var was_moving : bool
 
+var number_of_proxy_area = 0
+
 func _ready():
 	# Subscribe to all _hero_entered and _hero_exited signals
 	# var interactableAreas = get_tree().get_nodes_in_group("interactable")
@@ -118,3 +120,9 @@ func exit_area(area):
 # func connect_runtime_interactable(interactable):
 # 	interactable.connect("body_entered", self, "enter_area")
 # 	interactable.connect("body_exited", self, "exit_area")
+
+func _on_body_enter(area):
+	number_of_proxy_area = number_of_proxy_area + 1
+
+func _on_body_exit(area):
+	number_of_proxy_area = number_of_proxy_area - 1
