@@ -18,6 +18,11 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
+"name": "bistecca",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
 "name": "bisteccacrudo",
 "speed": 5.0
 }, {
@@ -29,6 +34,11 @@ animations = [ {
 "frames": [  ],
 "loop": true,
 "name": "bisteccagriglia",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "fungo",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -48,6 +58,11 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
+"name": "melanzana",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
 "name": "melanzanacrudo",
 "speed": 5.0
 }, {
@@ -59,6 +74,11 @@ animations = [ {
 "frames": [  ],
 "loop": true,
 "name": "melanzanagriglia",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "pesce",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -116,7 +136,7 @@ script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="MainCourse"]
 frames = SubResource( 3 )
-animation = "Empty"
+animation = "melanzana"
 
 [node name="Side" type="Area2D" parent="."]
 position = Vector2( 14, 10 )
