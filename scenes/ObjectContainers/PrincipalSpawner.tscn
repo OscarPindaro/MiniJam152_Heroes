@@ -43,6 +43,7 @@ animations = [ {
 
 [node name="PrincipalSpawner" type="StaticBody2D" groups=["interactable"]]
 script = ExtResource( 1 )
+main = "pesce"
 
 [node name="Icon" type="Sprite" parent="."]
 texture = ExtResource( 2 )
