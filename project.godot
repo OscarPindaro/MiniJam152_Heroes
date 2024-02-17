@@ -23,6 +23,10 @@ _global_script_class_icons={
 config/name="MiniJam152_Heroes"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/height=1024
+
 [global]
 
 porta=false
