@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/UI/ScoreController_script.gd" type="Script" id=1]
+[ext_resource path="res://scenes/UI/Stopwatch_script.gd" type="Script" id=2]
+[ext_resource path="res://asset/over.png" type="Texture" id=4]
+[ext_resource path="res://asset/progress.png" type="Texture" id=5]
+
+[node name="ScoreController" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Score" type="Label" parent="."]
+margin_left = 51.0
+margin_top = 173.0
+margin_right = 91.0
+margin_bottom = 187.0
+
+[node name="Stopwatch" type="Label" parent="."]
+margin_left = 44.0
+margin_top = 28.0
+margin_right = 84.0
+margin_bottom = 42.0
+script = ExtResource( 2 )
+
+[node name="ProgressBar" type="TextureProgress" parent="."]
+margin_left = 44.0
+margin_top = 100.0
+margin_right = 81.0
+margin_bottom = 168.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 5 )
+fill_mode = 3
