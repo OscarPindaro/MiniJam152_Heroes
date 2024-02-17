@@ -10,7 +10,7 @@ onready var Side_node = $Side
 onready var Plate = $Plate
 
 var main_list = ['bistecca', 'pesce', 'melanzana', 'fungo']
-var cooking_list = ['griglia', 'crudo', 'fritto']
+var cooking_list = ['griglia', 'tagliato', 'fritto']
 var side_list = ['pomodoro', 'insalata', 'patate']
 
 # Called when the node enters the scene tree for the first time.
@@ -25,6 +25,7 @@ func _ready():
 	pass # Replace with function body.
 
 func set_main(newMain): 
+	print(newMain)
 	assert(newMain in main_list)
 	Main = newMain
 	MainCourse_node.set_property_main(Main)

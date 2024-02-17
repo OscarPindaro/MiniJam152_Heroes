@@ -11,16 +11,16 @@
 [node name="PrincipalSpawner" parent="." instance=ExtResource( 2 )]
 modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 82, 130 )
-main = "bistecca"
+main = "pesce"
 
 [node name="CookingSpawner" parent="." instance=ExtResource( 3 )]
 modulate = Color( 0, 1, 0.298039, 1 )
 position = Vector2( 141, 129 )
-cooking = "fritto"
+cooking = "griglia"
 
 [node name="SideDishSpawner" parent="." instance=ExtResource( 4 )]
 position = Vector2( 199, 129 )
-side_dish = "patate"
+side_dish = "pomodoro"
 
 [node name="TrashBin" parent="." instance=ExtResource( 1 )]
 position = Vector2( 257, 130 )
