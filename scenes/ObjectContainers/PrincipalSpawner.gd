@@ -17,9 +17,9 @@ func _ready():
 	load_ingredient()
 
 func set_main(new_main):
+	if new_main in main_list:
+		main = new_main
 	if is_inside_tree():
-		if new_main in main_list:
-			main = new_main
 			load_ingredient()
 
 func load_ingredient():

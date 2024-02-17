@@ -15,9 +15,9 @@ func _ready():
 	load_ingredient()
 
 func set_side_dish(new_side_dish):
+	if new_side_dish in side_list:
+		side_dish = new_side_dish
 	if is_inside_tree():
-		if new_side_dish in side_list:
-			side_dish = new_side_dish
 			load_ingredient()
 
 func load_ingredient():
