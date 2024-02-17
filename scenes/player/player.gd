@@ -18,7 +18,7 @@ var inMain = true
 # Base camera zoom
 var base_zoom = Vector2.ZERO
 
-onready var audio_player : AudioStreamPlayer = $AudioStreamPlayer
+# onready var audio_player : AudioStreamPlayer = $AudioStreamPlayer
 
 var was_moving : bool
 
@@ -43,8 +43,8 @@ func _process(_delta):
 	
 	# Interacting with objects
 	if Input.is_action_just_pressed("player_interact") and interactables.size() > 0 :
-		var input = interactables[0]._player_interact(heldItem)		
 		$ItemAnchor.remove_child(heldItem)
+		var input = interactables[0]._player_interact(heldItem)
 		self.add_item(input)
 	
 

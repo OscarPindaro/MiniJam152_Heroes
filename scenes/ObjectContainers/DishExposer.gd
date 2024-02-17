@@ -16,7 +16,11 @@ func _ready():
 func _player_interact(item: Item) -> Item:
 	if item == null:
 		return null
-	add_child(item)
+	if dish != null:
+		dish.queue_free()
+	self.add_child(item)
+
+	item.position = Vector2.ZERO
 	dish = item
 	# samuele se, era none l'item, deve fare add_child
 	return null
