@@ -3,7 +3,7 @@ extends Area2D
 const playerGroup = "player"
 
 const tag_texture_scene = preload("res://scenes/tag_texture.tscn")
-const textures_base_path = "res://asset/texture/"
+const textures_base_path = "res://asset/tags/"
 const textures_extension = ".png"
 
 # Score 
@@ -16,7 +16,7 @@ const perfect_multiplier = 1.5
 const failure_malus = -2
 
 # Signals that the hero has reached the kitchen
-signal reached_kitchen(eroe)
+signal kitchen_reached(eroe)
 signal eaten_dish(dish_num, score)
 
 # To assign before adding as a child
@@ -57,9 +57,9 @@ func get_dish_score(dish : Dictionary):
 	else:
 		var perfect = true
 		for key in preferences:
-			if preferences[key].has(dish[key]):
+			if preferences[key] == dish[key]:
 				score += scores[key]
-			elif preferences[key].size() > 0:
+			elif preferences[key] != null:
 				perfect = false
 		
 		# Give bonus or malus
@@ -82,19 +82,21 @@ func _ready():
 	# Populate baloon box by instancing tag_texture(s)
 	if preferences != null:
 		for dish_part in preferences:
-			for tag in preferences[dish_part]:
-				var individual_tag = tag_texture_scene.instance()
+			var tag = preferences[dish_part]
+			var individual_tag = tag_texture_scene.instance()
 			
-				var texture_path = textures_base_path + tag + textures_extension
-				individual_tag.tag_texture = load(texture_path)
+			var texture_path = textures_base_path + tag + textures_extension
+			individual_tag.tag_texture = load(texture_path)
 			
-				$BaloonUI/TagsContainer.add_child(individual_tag)
+			$BaloonUI/TagsContainer.add_child(individual_tag)
 
 func _physics_process(delta):
 	if $NavigationAgent2D.is_target_reached():
 		if not has_eaten:
-			emit_signal("reached_kitchen", self)
+			emit_signal("kitchen_reached", self)
 			has_eaten = true
+		else:
+			queue_free()
 		return
 	
 	# Move to next location accounting for speed and delta
