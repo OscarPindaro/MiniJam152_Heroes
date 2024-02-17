@@ -3,7 +3,7 @@ extends Area2D
 onready var sprite = $AnimatedSprite
 
 onready var sprite_frame = 'Empty'
-# Called when the node enters the scene tree for the first time.nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnny
+# Called when the node enters the scene tree for the first time
 func _ready():
 	sprite.animation = sprite_frame
 	pass # Replace with function body.
