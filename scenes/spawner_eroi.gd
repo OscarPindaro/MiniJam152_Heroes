@@ -4,6 +4,9 @@ export var min_wait_time = 2
 export var max_wait_time = 5
 export var wave_dim = 100
 
+export var menu_path : NodePath = "MenuController"
+onready var menu = get_node(menu_path)
+
 var spawn_num = 0
 
 var hero_scene = preload("res://scenes/eroe.tscn")
@@ -87,7 +90,9 @@ func spawn_hero():
 	hero.destination = destination
 	add_child(hero)
 	
-	# TODO: subscribe the menu to the hero's "reached_kitchen" signal
+	# Subscribe the menu to the hero's "reached_kitchen" signal
+	hero.reached_kitchen.connect(menu.on_kitchen_reached)
+	# TODO: subscribe points manager to hero's "eaten_dish" signal
 
 func restart_timer():
 	var time = max_wait_time
