@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scenes/ScoreController_script.gd" type="Script" id=1]
-[ext_resource path="res://scenes/Stopwatch_script.gd" type="Script" id=2]
+[ext_resource path="res://scenes/UI/ScoreController_script.gd" type="Script" id=1]
+[ext_resource path="res://scenes/UI/Stopwatch_script.gd" type="Script" id=2]
 [ext_resource path="res://asset/over.png" type="Texture" id=4]
 [ext_resource path="res://asset/progress.png" type="Texture" id=5]
 
