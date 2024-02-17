@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/ObjectContainers/TrashBin.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/ObjectContainers/PrincipalSpawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/ObjectContainers/CookingSpawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/ObjectContainers/SideDishSpawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=5]
+
+[node name="TestItem" type="Node2D"]
+
+[node name="PrincipalSpawner" parent="." instance=ExtResource( 2 )]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 82, 130 )
+main = "bistecca"
+
+[node name="CookingSpawner" parent="." instance=ExtResource( 3 )]
+modulate = Color( 0, 1, 0.298039, 1 )
+position = Vector2( 141, 129 )
+main = "fritto"
+
+[node name="SideDishSpawner" parent="." instance=ExtResource( 4 )]
+position = Vector2( 199, 129 )
+main = "instalata"
+
+[node name="TrashBin" parent="." instance=ExtResource( 1 )]
+position = Vector2( 257, 130 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+scale = Vector2( 2, 2 )
