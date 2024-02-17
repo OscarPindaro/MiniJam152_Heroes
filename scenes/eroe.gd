@@ -1,23 +1,65 @@
 extends Area2D
 
 const playerGroup = "player"
+
 const tag_texture_scene = preload("res://scenes/tag_texture.tscn")
 const textures_base_path = "res://asset/texture/"
 const textures_extension = ".png"
 
-signal reached_kitchen
+# Score 
+const main_score = 3
+const cooking_score = 2
+const side_score = 1
+const perfect_bonus = 2
+const failure_malus = -2
+
+# Signals that the hero has reached the kitchen
+signal reached_kitchen(eroe)
 
 # To assign before adding as a child
 var sprite : SpriteFrames
 var destination : Vector2
 var speed : float
-var preferences : Array
+var preferences : Dictionary
 
 # Sets if it has to eat
 var has_eaten = false
 
+# Set new navigation target
 func set_navigation_target(target : Vector2):
 	$NavigationAgent2D.set_target_location(target)
+
+# Evaluates the two dishes and returns the winning one and its score
+func evaluate(dish1 : Dictionary, dish2 : Dictionary):
+	var score1 = get_dish_score(dish1)
+	var score2 = get_dish_score(dish2)
+	
+	if score1 >= score2:
+		return {"dish": "1", "score": score1}
+	else:
+		return {"dish": "2", "score": score2}
+		
+func get_dish_score(dish : Dictionary):
+	# Dish evaluation based on preferences
+	var score = 0
+	if dish == null:
+		score = failure_malus
+	else:
+		# Calculate score
+		if preferences["main"].has(dish["main"]):
+			score += main_score
+		if preferences["cooking"].has(dish["cooking"]):
+			score += cooking_score
+		if preferences["side"].has(dish["side"]):
+			score += side_score
+		
+		# Give bonus or malus
+		if score == main_score + cooking_score + side_score:
+			score += perfect_bonus
+		elif score == 0:
+			score = failure_malus
+		
+	return score
 
 func _ready():
 	# Set navigation destination
@@ -41,7 +83,7 @@ func _ready():
 func _physics_process(delta):
 	if $NavigationAgent2D.is_target_reached():
 		if not has_eaten:
-			emit_signal("reached_kitchen")
+			emit_signal("reached_kitchen", self)
 			has_eaten = true
 		return
 	
