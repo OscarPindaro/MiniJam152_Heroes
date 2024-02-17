@@ -13,7 +13,7 @@ export var exitPoints : PoolVector2Array
 
 var spawn_num = 0
 
-var hero_scene = preload("res://scenes/eroe.tscn")
+var hero_scene = preload("res://scenes/eroi/eroe.tscn")
 var orc_sprite = preload("res://asset/heroes/orc.tres")
 var elf_sprite = preload("res://asset/heroes/elf.tres")
 var dwarf_sprite = preload("res://asset/heroes/dwarf.tres")

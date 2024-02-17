@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/UI/UI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/Mappa.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/ObjectContainers/MenuController.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/spawner_eroi.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/eroi/spawner_eroi.tscn" type="PackedScene" id=10]
 
 [node name="TestItem" type="Node2D"]
 
