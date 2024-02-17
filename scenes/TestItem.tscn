@@ -10,7 +10,6 @@
 [node name="TestItem" type="Node2D"]
 
 [node name="PrincipalSpawner" parent="." instance=ExtResource( 2 )]
-modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 156, 270 )
 main = "pesce"
 
