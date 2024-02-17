@@ -22,6 +22,7 @@ func set_side_dish(new_side_dish):
 
 func load_ingredient():
 	anim_sprite.animation = side_dish
+	anim_sprite.play()
 
 func _player_interact(item: Item) -> Item:
 	if not Engine.editor_hint:

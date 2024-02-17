@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://asset/UI/menu/carlocracco.jpg" type="Texture" id=1]
+
+[node name="EndScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Carlocracco" type="Sprite" parent="."]
+position = Vector2( 510, 515 )
+scale = Vector2( 3.38, 2.27111 )
+texture = ExtResource( 1 )
+flip_v = true
+
+[node name="Game Over" type="Label" parent="."]
+margin_left = 390.0
+margin_top = 507.0
+margin_right = 600.0
+margin_bottom = 568.0
+text = "Game Over"
+align = 1
+valign = 1
