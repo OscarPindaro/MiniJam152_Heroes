@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/ObjectContainers/TrashBin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/ObjectContainers/PrincipalSpawner.tscn" type="PackedScene" id=2]
@@ -10,26 +10,74 @@
 [ext_resource path="res://scenes/Mappa.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/ObjectContainers/MenuController.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/eroi/spawner_eroi.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/ObjectContainers/SideDishSpawner.gd" type="Script" id=11]
 
 [node name="TestItem" type="Node2D"]
 
 [node name="Mappa" parent="." instance=ExtResource( 8 )]
 position = Vector2( 151, 329 )
 
-[node name="PrincipalSpawner" parent="." instance=ExtResource( 2 )]
-position = Vector2( 583, 792 )
+[node name="Principals" type="Node2D" parent="."]
+position = Vector2( -47, -1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PrincipalSpawner" parent="Principals" instance=ExtResource( 2 )]
+position = Vector2( 854, 793 )
 main = "melanzana"
 
-[node name="CookingSpawner" parent="." instance=ExtResource( 3 )]
-position = Vector2( 551, 782 )
+[node name="PrincipalSpawner2" parent="Principals" instance=ExtResource( 2 )]
+position = Vector2( 806, 793 )
+main = "bistecca"
+
+[node name="PrincipalSpawner3" parent="Principals" instance=ExtResource( 2 )]
+position = Vector2( 758, 793 )
+
+[node name="PrincipalSpawner4" parent="Principals" instance=ExtResource( 2 )]
+position = Vector2( 710, 793 )
+main = "fungo"
+
+[node name="Cookings" type="Node2D" parent="."]
+position = Vector2( -128, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CookingSpawner" parent="Cookings" instance=ExtResource( 3 )]
+position = Vector2( 679, 782 )
 cooking = "fritto"
 
-[node name="SideDishSpawner" parent="." instance=ExtResource( 4 )]
-position = Vector2( 518, 793 )
+[node name="CookingSpawner2" parent="Cookings" instance=ExtResource( 3 )]
+position = Vector2( 631, 782 )
+cooking = "griglia"
+
+[node name="CookingSpawner3" parent="Cookings" instance=ExtResource( 3 )]
+position = Vector2( 583, 782 )
+cooking = "tagliato"
+
+[node name="Sides" type="Node2D" parent="."]
+position = Vector2( -175, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="SideDishSpawner" parent="Sides" instance=ExtResource( 4 )]
+position = Vector2( 535, 792 )
 side_dish = "insalata"
 
+[node name="SideDishSpawner2" parent="Sides" instance=ExtResource( 4 )]
+position = Vector2( 487, 792 )
+script = ExtResource( 11 )
+side_dish = "pomodoro"
+
+[node name="SideDishSpawner3" parent="Sides" instance=ExtResource( 4 )]
+position = Vector2( 439, 792 )
+script = ExtResource( 11 )
+side_dish = "patate"
+
 [node name="TrashBin" parent="." instance=ExtResource( 1 )]
-position = Vector2( 455, 792 )
+position = Vector2( 199, 792 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 726, 761 )
