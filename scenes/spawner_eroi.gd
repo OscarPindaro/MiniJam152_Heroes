@@ -9,6 +9,7 @@ onready var menu = get_node(menu_path)
 
 export var spawnEdges : PoolVector2Array
 export var destEdges : PoolVector2Array
+export var exitPoints : PoolVector2Array
 
 var spawn_num = 0
 
@@ -92,8 +93,13 @@ func spawn_hero():
 	add_child(hero)
 	
 	# Subscribe the menu to the hero's "reached_kitchen" signal
-	#hero.reached_kitchen.connect(menu.on_kitchen_reached)
-	# TODO: subscribe points manager to hero's "eaten_dish" signal
+	hero.connect("kitchen_reached", menu, "on_kitchen_reached")
+	hero.connect("kitchen_reached", self, "on_kitchen_reached_by_hero")
+
+func on_kitchen_reached_by_hero(hero):
+	# Send hero to exit and disable area
+	hero.set_navigation_target(exitPoints[randi() % exitPoints.size()])
+	hero.monitoring = false
 
 func restart_timer():
 	var time = max_wait_time

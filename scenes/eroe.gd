@@ -16,7 +16,7 @@ const perfect_multiplier = 1.5
 const failure_malus = -2
 
 # Signals that the hero has reached the kitchen
-signal reached_kitchen(eroe)
+signal kitchen_reached(eroe)
 signal eaten_dish(dish_num, score)
 
 # To assign before adding as a child
@@ -59,7 +59,7 @@ func get_dish_score(dish : Dictionary):
 		for key in preferences:
 			if preferences[key] == dish[key]:
 				score += scores[key]
-			elif preferences[key].size() > 0:
+			elif preferences[key] != null:
 				perfect = false
 		
 		# Give bonus or malus
@@ -93,8 +93,10 @@ func _ready():
 func _physics_process(delta):
 	if $NavigationAgent2D.is_target_reached():
 		if not has_eaten:
-			emit_signal("reached_kitchen", self)
+			emit_signal("kitchen_reached", self)
 			has_eaten = true
+		else:
+			queue_free()
 		return
 	
 	# Move to next location accounting for speed and delta
