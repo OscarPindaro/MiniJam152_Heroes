@@ -24,3 +24,14 @@ func _player_interact(item: Item) -> Item:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Area2D_body_entered(body:Node):
+	if body.is_in_group("player"):
+		body.enter_area(self)
+
+
+
+func _on_Area2D_body_exited(body:Node):
+	if body.is_in_group("player"):
+		body.exit_area(self)
