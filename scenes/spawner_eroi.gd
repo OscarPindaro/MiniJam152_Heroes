@@ -1,11 +1,14 @@
 extends Node2D
 
-export var min_wait_time = 2
-export var max_wait_time = 5
+export var min_wait_time : float = 2
+export var max_wait_time : float = 5
 export var wave_dim = 100
 
 export var menu_path : NodePath = "MenuController"
 onready var menu = get_node(menu_path)
+
+export var spawnEdges : PoolVector2Array
+export var destEdges : PoolVector2Array
 
 var spawn_num = 0
 
@@ -13,8 +16,6 @@ var hero_scene = preload("res://scenes/eroe.tscn")
 var orc_sprite = preload("res://asset/heroes/orc.tres")
 var elf_sprite = preload("res://asset/heroes/elf.tres")
 var dwarf_sprite = preload("res://asset/heroes/dwarf.tres")
-
-onready var spawnEdges = $SpawnEdges.get_children()
 
 class Stats:
 	var name : String
@@ -78,8 +79,8 @@ func spawn_hero():
 				break
 	
 	# Randomize the spawn point and define the destination
-	var spawn_position = spawnEdges[0].global_position.linear_interpolate(spawnEdges[1].global_position, randf())
-	var destination = spawn_position + Vector2(0, 300)
+	var spawn_position = spawnEdges[0].linear_interpolate(spawnEdges[1], randf())
+	var destination = destEdges[0].linear_interpolate(destEdges[1], randf())
 	
 	# Spawn the hero and populate its parameters
 	var hero = hero_scene.instance()
@@ -91,7 +92,7 @@ func spawn_hero():
 	add_child(hero)
 	
 	# Subscribe the menu to the hero's "reached_kitchen" signal
-	hero.reached_kitchen.connect(menu.on_kitchen_reached)
+	#hero.reached_kitchen.connect(menu.on_kitchen_reached)
 	# TODO: subscribe points manager to hero's "eaten_dish" signal
 
 func restart_timer():
