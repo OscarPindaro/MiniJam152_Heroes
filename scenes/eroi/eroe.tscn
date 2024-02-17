@@ -16,6 +16,9 @@ shape = SubResource( 1 )
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [node name="BaloonUI" type="CenterContainer" parent="."]
 visible = false
 anchor_left = 0.684
