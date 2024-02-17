@@ -95,3 +95,4 @@ texture = ExtResource( 2 )
 
 [node name="ItemAnchor" type="Position2D" parent="."]
 position = Vector2( 0, -10 )
+z_index = 5

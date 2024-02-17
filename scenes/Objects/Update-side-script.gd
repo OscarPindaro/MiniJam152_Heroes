@@ -10,6 +10,7 @@ func _ready():
 
 func set_side(newSide):
 	sprite_frame = newSide
+	print(newSide)
 	sprite.animation = sprite_frame
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

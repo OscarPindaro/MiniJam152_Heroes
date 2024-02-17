@@ -109,7 +109,7 @@ animations = [ {
 "name": "insalata",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "patate",
 "speed": 5.0
@@ -135,6 +135,8 @@ script = ExtResource( 1 )
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="MainCourse"]
+scale = Vector2( 0.01, 0.01 )
+z_index = 1
 frames = SubResource( 3 )
 animation = "melanzana"
 
@@ -144,6 +146,7 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Side"]
 position = Vector2( -29, -17 )
+z_index = 1
 frames = SubResource( 2 )
 animation = "Empty"
 

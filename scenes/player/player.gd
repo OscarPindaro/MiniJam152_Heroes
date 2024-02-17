@@ -44,6 +44,7 @@ func _process(_delta):
 	# Interacting with objects
 	if Input.is_action_just_pressed("player_interact") and interactables.size() > 0 :
 		var input = interactables[0]._player_interact(heldItem)		
+		$ItemAnchor.remove_child(heldItem)
 		self.add_item(input)
 	
 
