@@ -24,10 +24,10 @@ var was_moving : bool
 
 func _ready():
 	# Subscribe to all _hero_entered and _hero_exited signals
-	var interactableAreas = get_tree().get_nodes_in_group("interactable")
-	for i in range(0, interactableAreas.size()):
-		interactableAreas[i].connect("body_entered", self, "enter_area")
-		interactableAreas[i].connect("body_exited", self, "exit_area")
+	# var interactableAreas = get_tree().get_nodes_in_group("interactable")
+	# for i in range(0, interactableAreas.size()):
+	# 	interactableAreas[i].connect("body_entered", self, "enter_area")
+	# 	interactableAreas[i].connect("body_exited", self, "exit_area")
 	
 	was_moving = false
 	# Get camera zoom
@@ -110,6 +110,6 @@ func exit_area(area):
 	interactables.erase(area)
 	$InteractButton.visible = false
 	
-func connect_runtime_interactable(interactable):
-	interactable.connect("body_entered", self, "enter_area")
-	interactable.connect("body_exited", self, "exit_area")
+# func connect_runtime_interactable(interactable):
+# 	interactable.connect("body_entered", self, "enter_area")
+# 	interactable.connect("body_exited", self, "exit_area")

@@ -9,7 +9,7 @@ extents = Vector2( 15, 15.5 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 16, 16 )
 
-[node name="CookingSpawner" type="StaticBody2D"]
+[node name="CookingSpawner" type="StaticBody2D" groups=["interactable"]]
 script = ExtResource( 1 )
 
 [node name="Icon" type="Sprite" parent="."]
@@ -19,7 +19,7 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="." groups=["interactable"]]
+[node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, -31 )
