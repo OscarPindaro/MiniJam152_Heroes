@@ -7,10 +7,12 @@ const textures_base_path = "res://asset/texture/"
 const textures_extension = ".png"
 
 # Score 
-const main_score = 3
-const cooking_score = 2
-const side_score = 1
-const perfect_bonus = 2
+const scores = {
+	"main": 3,
+	"cooking": 2,
+	"side": 1
+}
+const perfect_multiplier = 1.5
 const failure_malus = -2
 
 # Signals that the hero has reached the kitchen
@@ -53,17 +55,16 @@ func get_dish_score(dish : Dictionary):
 	if dish == null:
 		score = failure_malus
 	else:
-		# Calculate score
-		if preferences["main"].has(dish["main"]):
-			score += main_score
-		if preferences["cooking"].has(dish["cooking"]):
-			score += cooking_score
-		if preferences["side"].has(dish["side"]):
-			score += side_score
+		var perfect = true
+		for key in preferences:
+			if preferences[key].has(dish[key]):
+				score += scores[key]
+			elif preferences[key].size() > 0:
+				perfect = false
 		
 		# Give bonus or malus
-		if score == main_score + cooking_score + side_score:
-			score += perfect_bonus
+		if perfect:
+			score *= perfect_multiplier
 		elif score == 0:
 			score = failure_malus
 		
