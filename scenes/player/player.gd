@@ -126,3 +126,4 @@ func _on_body_enter(area):
 
 func _on_body_exit(area):
 	number_of_proxy_area = number_of_proxy_area - 1
+	pass
