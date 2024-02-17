@@ -7,6 +7,7 @@ var Side = null
 var Cooking = null
 onready var MainCourse_node = $MainCourse
 onready var Side_node = $Side
+onready var Plate = $Plate
 
 var main_list = ['bistecca', 'pesce', 'melanzana', 'fungo']
 var cooking_list = ['griglia', 'crudo', 'fritto']

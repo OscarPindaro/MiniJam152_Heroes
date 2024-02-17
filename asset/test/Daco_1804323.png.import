@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/EmptyEmpty.jpg-1c272f5ca00feb8206ab6d96592904ee.stex"
+path="res://.import/Daco_1804323.png-8d972a0d6da5428a79ea77a4ba0f4821.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/EmptyEmpty.jpg"
-dest_files=[ "res://.import/EmptyEmpty.jpg-1c272f5ca00feb8206ab6d96592904ee.stex" ]
+source_file="res://asset/test/Daco_1804323.png"
+dest_files=[ "res://.import/Daco_1804323.png-8d972a0d6da5428a79ea77a4ba0f4821.stex" ]
 
 [params]
 
