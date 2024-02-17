@@ -19,14 +19,18 @@ const failure_malus = -2
 signal kitchen_reached(eroe)
 signal eaten_dish(dish_num, score)
 
+# Time to wait before deciding for a dish
+const waitTime = 3.0
+
 # To assign before adding as a child
 var sprite : SpriteFrames
 var destination : Vector2
 var speed : float
 var preferences : Dictionary # nella forma: {"main": Array, "cooking": Array, "side": Array}
 
-# Sets if it has to eat
+# Boolean variables
 var has_eaten = false
+var is_going_out = false
 
 # Set new navigation target
 func set_navigation_target(target : Vector2):
@@ -93,9 +97,11 @@ func _ready():
 func _physics_process(delta):
 	if $NavigationAgent2D.is_target_reached():
 		if not has_eaten:
-			emit_signal("kitchen_reached", self)
+			# Wait for [waitTime] sec and then emit signal that a decision has been made
+			$Timer.connect("timeout", self, "_on_waitTime_ended")
+			$Timer.start(waitTime)
 			has_eaten = true
-		else:
+		elif is_going_out:
 			queue_free()
 		return
 	
@@ -105,6 +111,9 @@ func _physics_process(delta):
 	var movement_delta = speed * delta
 	var velocity = direction * movement_delta
 	global_position = global_position + velocity
+
+func _on_waitTime_ended():
+	emit_signal("kitchen_reached", self)
 
 func _on_eroe_body_entered(body):
 	if body.is_in_group(playerGroup):

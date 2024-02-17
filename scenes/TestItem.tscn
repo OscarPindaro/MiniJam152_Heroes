@@ -17,20 +17,19 @@
 position = Vector2( 151, 329 )
 
 [node name="PrincipalSpawner" parent="." instance=ExtResource( 2 )]
-position = Vector2( 583, 856 )
-main = "bistecca"
+position = Vector2( 583, 792 )
+main = "melanzana"
 
 [node name="CookingSpawner" parent="." instance=ExtResource( 3 )]
-modulate = Color( 0, 1, 0.298039, 1 )
-position = Vector2( 550, 857 )
-cooking = "griglia"
+position = Vector2( 551, 782 )
+cooking = "fritto"
 
 [node name="SideDishSpawner" parent="." instance=ExtResource( 4 )]
-position = Vector2( 518, 856 )
-side_dish = "pomodoro"
+position = Vector2( 518, 793 )
+side_dish = "insalata"
 
 [node name="TrashBin" parent="." instance=ExtResource( 1 )]
-position = Vector2( 455, 857 )
+position = Vector2( 455, 792 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 726, 761 )
