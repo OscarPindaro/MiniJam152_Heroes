@@ -3,7 +3,7 @@ extends Area2D
 const playerGroup = "player"
 
 const tag_texture_scene = preload("res://scenes/tag_texture.tscn")
-const textures_base_path = "res://asset/texture/"
+const textures_base_path = "res://asset/food/"
 const textures_extension = ".png"
 
 # Score 
