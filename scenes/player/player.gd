@@ -49,6 +49,9 @@ func _process(_delta):
 		var input = interactables[0]._player_interact(heldItem)
 		self.add_item(input)
 	
+	
+	if number_of_proxy_area > 0:
+		_play_sound()
 
 func _physics_process(_delta):
 	
@@ -126,4 +129,11 @@ func _on_body_enter(area):
 
 func _on_body_exit(area):
 	number_of_proxy_area = number_of_proxy_area - 1
-	pass
+	
+
+func _play_sound():
+	var tree = get_tree()
+	var tree_root = tree.root
+	var test = tree_root.get_node("TestItem").get_node("Npc").get_node("AudioStreamPlayer2D")
+	test.play()
+	
