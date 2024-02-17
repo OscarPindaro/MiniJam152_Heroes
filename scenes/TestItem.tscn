@@ -44,6 +44,7 @@ position = Vector2( 583, 685 )
 position = Vector2( 423, 685 )
 
 [node name="ScoreController" parent="." instance=ExtResource( 7 )]
+menu_path = NodePath("../MenuController")
 
 [node name="MenuController" parent="." instance=ExtResource( 9 )]
 exposer_path1 = NodePath("../DishExposer")
