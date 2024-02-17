@@ -15,6 +15,7 @@ const failure_malus = -2
 
 # Signals that the hero has reached the kitchen
 signal reached_kitchen(eroe)
+signal eaten_dish(dish_num, score)
 
 # To assign before adding as a child
 var sprite : SpriteFrames
@@ -34,10 +35,17 @@ func evaluate(dish1 : Dictionary, dish2 : Dictionary):
 	var score1 = get_dish_score(dish1)
 	var score2 = get_dish_score(dish2)
 	
+	var chosen_dish
+	var chosen_score
 	if score1 >= score2:
-		return {"dish": "1", "score": score1}
+		chosen_dish = "1"
+		chosen_score = score1
 	else:
-		return {"dish": "2", "score": score2}
+		chosen_dish = "2"
+		chosen_score = score2
+	
+	emit_signal("eaten_dish", chosen_dish, chosen_score)
+	return {"dish": chosen_dish, "score": chosen_score}
 		
 func get_dish_score(dish : Dictionary):
 	# Dish evaluation based on preferences
