@@ -57,7 +57,7 @@ func get_dish_score(dish : Dictionary):
 	else:
 		var perfect = true
 		for key in preferences:
-			if preferences[key].has(dish[key]):
+			if preferences[key] == dish[key]:
 				score += scores[key]
 			elif preferences[key].size() > 0:
 				perfect = false
@@ -82,13 +82,13 @@ func _ready():
 	# Populate baloon box by instancing tag_texture(s)
 	if preferences != null:
 		for dish_part in preferences:
-			for tag in preferences[dish_part]:
-				var individual_tag = tag_texture_scene.instance()
+			var tag = preferences[dish_part]
+			var individual_tag = tag_texture_scene.instance()
 			
-				var texture_path = textures_base_path + tag + textures_extension
-				individual_tag.tag_texture = load(texture_path)
+			var texture_path = textures_base_path + tag + textures_extension
+			individual_tag.tag_texture = load(texture_path)
 			
-				$BaloonUI/TagsContainer.add_child(individual_tag)
+			$BaloonUI/TagsContainer.add_child(individual_tag)
 
 func _physics_process(delta):
 	if $NavigationAgent2D.is_target_reached():
