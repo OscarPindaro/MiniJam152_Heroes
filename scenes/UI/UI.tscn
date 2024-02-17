@@ -1,31 +1,93 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/UI/ScoreController_script.gd" type="Script" id=1]
 [ext_resource path="res://scenes/UI/Stopwatch_script.gd" type="Script" id=2]
-[ext_resource path="res://asset/over.png" type="Texture" id=4]
-[ext_resource path="res://asset/progress.png" type="Texture" id=5]
+[ext_resource path="res://asset/UI/pile4.png" type="Texture" id=3]
+[ext_resource path="res://asset/UI/pile1.png" type="Texture" id=4]
+[ext_resource path="res://asset/UI/pile2.png" type="Texture" id=5]
+[ext_resource path="res://asset/UI/pile0.png" type="Texture" id=6]
+[ext_resource path="res://asset/UI/pile3.png" type="Texture" id=7]
+[ext_resource path="res://asset/UI/pile5.png" type="Texture" id=8]
+[ext_resource path="res://asset/UI/pile_povero.png" type="Texture" id=9]
+[ext_resource path="res://asset/UI/pile_poco.png" type="Texture" id=10]
+[ext_resource path="res://scenes/UI/GoldPile_script.gd" type="Script" id=11]
+[ext_resource path="res://asset/UI/Pixeboy-z8XGD.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://asset/UI/Pixel LCD-7.ttf" type="DynamicFontData" id=13]
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+outline_color = Color( 0.807843, 0.847059, 0.113725, 1 )
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 13 )
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "10g",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "20g",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "30g",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "40g",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "50g",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "60g",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "70g",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "80g",
+"speed": 5.0
+} ]
 
 [node name="ScoreController" type="Node2D"]
 script = ExtResource( 1 )
+score = 46.0
 
 [node name="Score" type="Label" parent="."]
-margin_left = 51.0
-margin_top = 173.0
-margin_right = 91.0
-margin_bottom = 187.0
+margin_left = 24.0
+margin_top = 837.0
+margin_right = 78.0
+margin_bottom = 852.0
+custom_colors/font_color = Color( 0.854902, 0.878431, 0.105882, 1 )
+custom_fonts/font = SubResource( 2 )
 
 [node name="Stopwatch" type="Label" parent="."]
-margin_left = 44.0
-margin_top = 28.0
-margin_right = 84.0
-margin_bottom = 42.0
+margin_left = 52.0
+margin_top = 129.0
+margin_right = 92.0
+margin_bottom = 145.0
+custom_fonts/font = SubResource( 3 )
 script = ExtResource( 2 )
 
-[node name="ProgressBar" type="TextureProgress" parent="."]
-margin_left = 44.0
-margin_top = 100.0
-margin_right = 81.0
-margin_bottom = 168.0
-texture_under = ExtResource( 4 )
-texture_progress = ExtResource( 5 )
-fill_mode = 3
+[node name="GoldPile" type="AnimatedSprite" parent="."]
+position = Vector2( 87, 706 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+animation = "80g"
+script = ExtResource( 11 )
