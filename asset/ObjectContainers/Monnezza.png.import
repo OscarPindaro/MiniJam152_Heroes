@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pesce_crudo.png-ace5c7542f15dfaf214c19289d0ebc3f.stex"
+path="res://.import/Monnezza.png-19ddb1fdc4dd2b90b5775e007823ccf2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/Item/pesce_crudo.png"
-dest_files=[ "res://.import/pesce_crudo.png-ace5c7542f15dfaf214c19289d0ebc3f.stex" ]
+source_file="res://asset/ObjectContainers/Monnezza.png"
+dest_files=[ "res://.import/Monnezza.png-19ddb1fdc4dd2b90b5775e007823ccf2.stex" ]
 
 [params]
 

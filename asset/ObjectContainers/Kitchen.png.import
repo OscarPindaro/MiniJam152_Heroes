@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pesce_crudo.png-ace5c7542f15dfaf214c19289d0ebc3f.stex"
+path="res://.import/Kitchen.png-6e05170e91f9b9c4405f2a2a3cdb9f80.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/Item/pesce_crudo.png"
-dest_files=[ "res://.import/pesce_crudo.png-ace5c7542f15dfaf214c19289d0ebc3f.stex" ]
+source_file="res://asset/ObjectContainers/Kitchen.png"
+dest_files=[ "res://.import/Kitchen.png-6e05170e91f9b9c4405f2a2a3cdb9f80.stex" ]
 
 [params]
 

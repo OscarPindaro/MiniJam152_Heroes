@@ -1,29 +1,67 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/ObjectContainers/PrincipalSpawner.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://asset/ObjectContainers/Kitchen.png" type="Texture" id=2]
+[ext_resource path="res://asset/Item/carne_cruda.png" type="Texture" id=3]
+[ext_resource path="res://asset/Item/funghi_crudi.png" type="Texture" id=4]
+[ext_resource path="res://asset/Item/melanzane_crude.png" type="Texture" id=5]
+[ext_resource path="res://asset/Item/pesce_crudo.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15, 15.5 )
+extents = Vector2( 16, 11 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16, 16 )
+extents = Vector2( 14, 13 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "bistecca",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "fungo",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "melanzana",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "pesce",
+"speed": 5.0
+} ]
 
 [node name="PrincipalSpawner" type="StaticBody2D" groups=["interactable"]]
 script = ExtResource( 1 )
+main = "pesce"
 
 [node name="Icon" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 5 )
 shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 0, -31 )
+modulate = Color( 0.12549, 1, 0, 1 )
+position = Vector2( 0, -19 )
 shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 4, -8 )
+frames = SubResource( 3 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
