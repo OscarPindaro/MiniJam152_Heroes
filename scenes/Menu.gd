@@ -1,16 +1,16 @@
 extends Node2D
 
-var _dishes: Array
 
-var tempValue: int = 0
-var Value: int = 0
 
 func _ready():
-	#recupero i piatti 
+	_connect_to__Player()
 	pass
-
-func _addValue(Hero):
-	Value = Hero.Value
-
-func _add_dish(Player):
-	_dishes.append(Player._dish)
+	
+func _connect_to__Player():
+		var tree = get_tree()
+		var tree_root = tree.root
+		var Player = tree_root.get_node("Node2D").get_node("Player")
+		Player.connect("send_dish", self, "print_dish")
+		
+func print_dish(name, dish):
+	print("Node name is ", name, "and test is: ", dish)
