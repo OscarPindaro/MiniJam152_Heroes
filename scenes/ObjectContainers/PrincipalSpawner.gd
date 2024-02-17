@@ -15,8 +15,9 @@ func _player_interact(item: Item) -> Item:
 	if item != null:
 		return item
 	# missing code because i need maff code
-	item = item_scene.initiate()
-	item.set_main(main)
+	print (item_scene)
+	item = item_scene.instance()
+	item.Main = main
 	# samuele se, era none l'item, deve fare add_child
 	return item
 	

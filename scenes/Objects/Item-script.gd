@@ -15,6 +15,13 @@ var side_list = ['pomodoro', 'insalata', 'patate']
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if Main != null:
+		set_main(Main)
+	if Cooking != null:
+		set_coocking(Cooking)
+	if Side != null:
+		set_side(Side)
+	
 	pass # Replace with function body.
 
 func set_main(newMain): 

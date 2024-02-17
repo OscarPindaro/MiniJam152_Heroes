@@ -7,8 +7,8 @@ export var movement_speed = 300
 # Player velocity
 var velocity
 
-# HeldObject
-var object = null
+# HeldItem
+var heldItem = null
 
 # Interactable areas the player is in
 var interactables = []
@@ -43,9 +43,8 @@ func _process(_delta):
 	
 	# Interacting with objects
 	if Input.is_action_just_pressed("player_interact") and interactables.size() > 0 :
-		object = interactables[0]._player_interact(object)
-		if object != null:
-			self.add_child(object)
+		var input = interactables[0]._player_interact(heldItem)		
+		self.add_item(input)
 	
 
 func _physics_process(_delta):
@@ -98,6 +97,11 @@ func _physics_process(_delta):
 	sprite.play()
 		
 		
+func add_item(item : Item):
+	if(item != null):
+		$ItemAnchor.add_child(item)
+		item.position = Vector2.ZERO	
+	heldItem = item
 		
 
 func enter_area(area):
