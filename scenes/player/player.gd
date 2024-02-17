@@ -24,11 +24,10 @@ var was_moving : bool
 
 func _ready():
 	# Subscribe to all _hero_entered and _hero_exited signals
-	interactables = get_tree().get_nodes_in_group("interactable")
-	for i in range(0, interactables.size()):
-		interactables[i].connect("area_entered", self, "enter_area")
-		interactables[i].connect("area_exited", self, "exit_area")
-	interactables = []
+	var interactableAreas = get_tree().get_nodes_in_group("interactable")
+	for i in range(0, interactableAreas.size()):
+		interactableAreas[i].connect("body_entered", self, "enter_area")
+		interactableAreas[i].connect("body_exited", self, "exit_area")
 	
 	was_moving = false
 	# Get camera zoom
@@ -36,13 +35,14 @@ func _ready():
 	$AnimatedSprite.animation = "idle_down"
 
 func _process(_delta):
-	print(interactables)
+	
+	#print(interactables)
 	if(not inMain):
 		return
 	
 	
 	# Interacting with objects
-	if Input.is_action_just_pressed("player_interact") and not interactables.is_empty():
+	if Input.is_action_just_pressed("player_interact") and interactables.size() > 0 :
 		object = interactables[0]._player_interact(object)
 		if object != null:
 			self.add_child(object)
@@ -101,6 +101,7 @@ func _physics_process(_delta):
 		
 
 func enter_area(area):
+	print(area)
 	if area.is_in_group("interactable"):
 		interactables.push_front(area)
 		$InteractButton.visible = true
@@ -110,5 +111,5 @@ func exit_area(area):
 	$InteractButton.visible = false
 	
 func connect_runtime_interactable(interactable):
-	interactable.connect("area_entered", self, "enter_area")
-	interactable.connect("area_exited", self, "exit_area")
+	interactable.connect("body_entered", self, "enter_area")
+	interactable.connect("body_exited", self, "exit_area")
