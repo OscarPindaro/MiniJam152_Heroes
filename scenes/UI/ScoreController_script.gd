@@ -2,8 +2,12 @@ extends Node2D
 onready var Score_node = $Score
 onready var ProgressBar_node = $ProgressBar
 onready var Timer_node = $Timer
+onready var GoldPile_node = $GoldPile
 
-var score = 10.0
+export var score = 10.0
+export var menu_path: NodePath
+
+var Menu_node = null
 var hero_count = 0
 var percent = 0
 # Declare member variables here. Examples:
@@ -13,17 +17,20 @@ var percent = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#ProgressBar_node.fill_mode = 'FILL_BOTTOM_TO_TOP'
+	Menu_node = get_node(menu_path)
+	Menu_node.connect('change_score', self, '_on_hero_score')
 	Score_node.text = "Coins: " + str(score)
-	ProgressBar_node.value = 50
+	GoldPile_node.switch_frame(score)
 	pass # Replace with function body.
+
+
 
 func _on_hero_score(newscore):
 	score += newscore
 	hero_count += 1
 	Score_node.set_text("Coins: " + str(score))
-	ProgressBar_node.Value = score
-
+	GoldPile_node.set_frame(score)
+	
 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
