@@ -1,4 +1,5 @@
-extends Node2D
+extends Node2D 
+class_name Item
 
 
 var Main = null
