@@ -5,16 +5,23 @@ const tag_texture_scene = preload("res://scenes/tag_texture.tscn")
 const textures_base_path = "res://asset/texture/"
 const textures_extension = ".png"
 
+signal reached_kitchen
+
 # To assign before adding as a child
 var sprite : SpriteFrames
 var destination : Vector2
 var speed : float
 var preferences : Array
 
-# Called when the node enters the scene tree for the first time.
+# Sets if it has to eat
+var has_eaten = false
+
+func set_navigation_target(target : Vector2):
+	$NavigationAgent2D.set_target_location(target)
+
 func _ready():
 	# Set navigation destination
-	$NavigationAgent2D.set_target_location(destination)
+	set_navigation_target(destination)
 	
 	# Set animated sprite
 	if sprite != null:
@@ -33,7 +40,9 @@ func _ready():
 
 func _physics_process(delta):
 	if $NavigationAgent2D.is_target_reached():
-		# TODO: emit signal
+		if not has_eaten:
+			emit_signal("reached_kitchen")
+			has_eaten = true
 		return
 	
 	# Move to next location accounting for speed and delta
@@ -43,11 +52,9 @@ func _physics_process(delta):
 	var velocity = direction * movement_delta
 	global_position = global_position + velocity
 
-
 func _on_eroe_body_entered(body):
 	if body.is_in_group(playerGroup):
 		$BaloonUI.visible = true
-
 
 func _on_eroe_body_exited(body):
 	if body.is_in_group(playerGroup):
