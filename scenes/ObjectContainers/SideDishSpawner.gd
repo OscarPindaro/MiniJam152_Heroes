@@ -16,7 +16,7 @@ func _player_interact(item: Item) -> Item:
 		return null
 	if item.Cooking != null:
 		return item
-	item.set_side(side_dish)
+	item.Side = side_dish
 	return item
 
 func _on_Area2D_body_entered(body:Node):

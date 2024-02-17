@@ -5,47 +5,38 @@
 [ext_resource path="res://asset/player/Goblin Animation sheet.png" type="Texture" id=3]
 
 [sub_resource type="AtlasTexture" id=11]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 0, 18, 18, 18 )
 
 [sub_resource type="AtlasTexture" id=3]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 18, 18 )
 
 [sub_resource type="AtlasTexture" id=6]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 0, 36, 18, 18 )
 
 [sub_resource type="AtlasTexture" id=1]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 18, 0, 18, 18 )
 
 [sub_resource type="AtlasTexture" id=2]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 36, 0, 18, 18 )
 
 [sub_resource type="AtlasTexture" id=7]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 18, 18, 18, 18 )
 
 [sub_resource type="AtlasTexture" id=8]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 36, 18, 18, 18 )
 
 [sub_resource type="AtlasTexture" id=4]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 18, 36, 18, 18 )
 
 [sub_resource type="AtlasTexture" id=5]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 36, 36, 18, 18 )
 
@@ -101,3 +92,6 @@ visible = false
 position = Vector2( -5.89326, -9.33652 )
 scale = Vector2( 0.05, 0.05 )
 texture = ExtResource( 2 )
+
+[node name="ItemAnchor" type="Position2D" parent="."]
+position = Vector2( 0, -10 )
