@@ -18,8 +18,8 @@ func _ready():
 
 
 func on_kitchen_reached(hero):
-	var item1: Item = exposer1.dish
-	var item2: Item = exposer2.dish
+	var item1: Item = exposer1.get_dish()
+	var item2: Item = exposer2.get_dish()
 	var dict1 = item1.get_property()
 	var dict2 = item2.get_property()
 	var new_points: float = hero.evaluate(dict1, dict2)["score"]

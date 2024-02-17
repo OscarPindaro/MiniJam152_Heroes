@@ -29,7 +29,10 @@ func _player_interact(item: Item) -> Item:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
+func get_dish():
+	if dish == null:
+		return Item.new()
+	return dish
 
 func _on_Area2D_body_entered(body:Node):
 	if body.is_in_group("player"):
