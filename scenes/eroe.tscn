@@ -26,16 +26,28 @@ frames = SubResource( 2 )
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
-[node name="CompositeBaloon" type="Node2D" parent="."]
-visible = false
-position = Vector2( 0, -64 )
+[node name="BaloonUI" type="CenterContainer" parent="."]
+anchor_left = 0.684
+anchor_top = 0.49
+anchor_right = 0.684
+anchor_bottom = 0.497
+margin_left = -33.0
+margin_top = -100.0
+margin_right = 31.0
+margin_bottom = -36.0
 
-[node name="BaloonSprite" type="Sprite" parent="CompositeBaloon"]
+[node name="BaloonTexture" type="TextureRect" parent="BaloonUI"]
+margin_right = 64.0
+margin_bottom = 64.0
 texture = ExtResource( 2 )
+stretch_mode = 1
 
-[node name="DishSprite" type="Sprite" parent="CompositeBaloon"]
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 2 )
+[node name="TagsContainer" type="HBoxContainer" parent="BaloonUI"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 32.0
+margin_bottom = 32.0
+alignment = 1
 
 [connection signal="body_entered" from="." to="." method="_on_eroe_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_eroe_body_exited"]
