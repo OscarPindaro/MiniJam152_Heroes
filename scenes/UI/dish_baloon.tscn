@@ -3,8 +3,9 @@
 [ext_resource path="res://asset/heroes/baloon.png" type="Texture" id=1]
 [ext_resource path="res://asset/tags/fritto.png" type="Texture" id=2]
 [ext_resource path="res://asset/tags/insalata.png" type="Texture" id=3]
-[ext_resource path="res://asset/tags/carne.png" type="Texture" id=4]
+[ext_resource path="res://asset/tags/bistecca.png" type="Texture" id=4]
 [ext_resource path="res://scenes/UI/dish_baloon.gd" type="Script" id=5]
+
 
 [node name="DishBaloon" type="Node2D"]
 visible = false
