@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/teca.png-37de87f494196627b9c8d505923ca01d.stex"
+path="res://.import/menu.png-2b7aba91df07f8803c0976e0a535c3dd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/Item/teca.png"
-dest_files=[ "res://.import/teca.png-37de87f494196627b9c8d505923ca01d.stex" ]
+source_file="res://asset/UI/menu/menu.png"
+dest_files=[ "res://.import/menu.png-2b7aba91df07f8803c0976e0a535c3dd.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

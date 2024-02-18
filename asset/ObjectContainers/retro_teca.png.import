@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/funghi_fritti.png-f3d1a4fd9897785dab9125d05d56d495.stex"
+path="res://.import/retro_teca.png-3dc8d4d63a9d1036af067dc101423247.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/Item/funghi_fritti.png"
-dest_files=[ "res://.import/funghi_fritti.png-f3d1a4fd9897785dab9125d05d56d495.stex" ]
+source_file="res://asset/ObjectContainers/retro_teca.png"
+dest_files=[ "res://.import/retro_teca.png-3dc8d4d63a9d1036af067dc101423247.stex" ]
 
 [params]
 
