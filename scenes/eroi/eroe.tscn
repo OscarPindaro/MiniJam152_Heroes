@@ -66,7 +66,7 @@ position = Vector2( 0, -48 )
 z_index = 4
 frames = ExtResource( 6 )
 animation = "choosing"
-playing = true
+frame = 2
 
 [node name="FadeTimer" type="Timer" parent="ChoosingBaloon"]
 

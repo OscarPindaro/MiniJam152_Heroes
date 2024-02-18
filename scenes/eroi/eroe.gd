@@ -138,6 +138,7 @@ func _physics_process(delta):
 			
 			# Show choosing baloon
 			$ChoosingBaloon.visible = true
+			$ChoosingBaloon.play()
 			
 			# Set idle animation
 			$AnimatedSprite.animation = "idle"
