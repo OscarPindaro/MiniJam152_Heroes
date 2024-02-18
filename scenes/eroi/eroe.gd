@@ -40,6 +40,8 @@ var has_eaten = false
 var is_going_out = false
 var perfect = false
 
+var audioInteractionHero
+
 # Set new navigation target
 func set_navigation_target(target : Vector2):
 	$NavigationAgent2D.set_target_location(target)
@@ -57,7 +59,7 @@ func evaluate(dish1 : Dictionary, dish2 : Dictionary):
 	else:
 		chosen_dish = "2"
 		chosen_score = score2
-	
+
 	emit_signal("eaten_dish", chosen_dish, chosen_score, perfect)
 	return {"dish": chosen_dish, "score": chosen_score, "perfect": perfect}
 		
@@ -90,16 +92,57 @@ func head_out():
 	$AnimatedSprite.modulate = Color(1, 1, 1, 0.8) # Apply transparency
 
 func update_choosing_baloon(dish, score, perfect):
+	var tempPathAudio
+	var randomNumber = randi() % 2 + 1
 	if score == failure_malus:
 		$ChoosingBaloon.animation = "failure"
+		if species == "elf":
+			if randomNumber == 1:
+				tempPathAudio = load("res://asset/soundeffects/VOX/elf_girl_bad2.wav")
+			else:
+				tempPathAudio = load("res://asset/soundeffects/VOX/elf_girl_bad1.wav")
+		elif species == "orc":
+			if randomNumber == 1:
+				tempPathAudio = load("res://asset/soundeffects/VOX/orc_girl_bad1.wav")
+			else:
+				tempPathAudio = load("res://asset/soundeffects/VOX/orc_girl_bad2.wav")
+		elif species == "dwarf":
+			if randomNumber == 1:
+				tempPathAudio = load("res://asset/soundeffects/VOX/dwarf_bad1.wav")
+			else:
+				tempPathAudio = load("res://asset/soundeffects/VOX/dwarf_bad2.wav")
 	elif perfect:
 		$ChoosingBaloon.animation = "perfect"
+		if species == "elf":
+			tempPathAudio = load("res://asset/soundeffects/VOX/elf_girl_perfect.wav")
+		elif species == "orc":
+			tempPathAudio = load("res://asset/soundeffects/VOX/dwarf_perfect.wav")
+		elif species == "dwarfs":
+			tempPathAudio = load("res://asset/soundeffects/VOX/dwarf_perfect.wav")
 	else:
 		$ChoosingBaloon.animation = "partial"
+		if species == "elf":
+			if randomNumber == 1:
+				tempPathAudio = load("res://asset/soundeffects/VOX/elf_girl_good.wav")
+			else:
+				tempPathAudio = load("res://asset/soundeffects/VOX/elf_girl_good.wav")
+		elif species == "orc":
+			if randomNumber == 1:
+				tempPathAudio = load("res://asset/soundeffects/VOX/orc_girl_good1.wav")
+			else:
+				tempPathAudio = load("res://asset/soundeffects/VOX/orc_girl_good2.wav")
+		elif species == "dwarfs":
+			if randomNumber == 1:
+				tempPathAudio = load("res://asset/soundeffects/VOX/dwarf_good1.wav")
+			else:
+				tempPathAudio = load("res://asset/soundeffects/VOX/dwarf_good2.wav")
 	
+			
 	# Start choosing baloon permanence timer
 	$ChoosingBaloon/FadeTimer.connect("timeout", self, "disable_choosing_baloon")
 	$ChoosingBaloon/FadeTimer.start(choosingBaloonPermanenceTime)
+	audioInteractionHero.set_stream(tempPathAudio)	
+	audioInteractionHero.play()
 	
 func disable_choosing_baloon():
 	$ChoosingBaloon.visible = false
@@ -107,6 +150,7 @@ func disable_choosing_baloon():
 func _ready():
 	# Set navigation destination
 	set_navigation_target(destination)
+	audioInteractionHero = 	get_node("AudioStreamPlayer2D")
 	
 	# Set animated sprite
 	if sprite != null:

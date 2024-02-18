@@ -14,7 +14,7 @@ var restaurant_node = null
 var velocity
 
 # HeldItem
-var heldItem: Item = null 
+var heldItem = null
 
 # Interactable areas the player is in
 var interactables = []
@@ -48,7 +48,8 @@ func _ready():
 	heroStep = get_node("AudioStreamPlayer2D")
 	
 func _process(_delta):
-	
+
+		
 	#print(interactables)
 	if(not inMain):
 		return
