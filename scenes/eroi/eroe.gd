@@ -15,7 +15,7 @@ const scores = {
 	"side": 1
 }
 const perfect_multiplier = 1.5
-const failure_malus = -2
+const failure_malus = -5
 
 const waitTime = 3.0
 const choosingBaloonPermanenceTime = 2.0
