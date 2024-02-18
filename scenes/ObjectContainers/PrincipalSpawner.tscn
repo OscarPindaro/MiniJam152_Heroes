@@ -42,7 +42,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="PrincipalSpawner" type="StaticBody2D" groups=["interactable"]]
+[node name="PrincipalSpawner" type="StaticBody2D" groups=["interactable", "principalSpawner"]]
 script = ExtResource( 1 )
 main = "pesce"
 

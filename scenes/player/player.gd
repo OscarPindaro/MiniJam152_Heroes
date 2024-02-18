@@ -14,7 +14,7 @@ var restaurant_node = null
 var velocity
 
 # HeldItem
-var heldItem = null
+var heldItem: Item = null 
 
 # Interactable areas the player is in
 var interactables = []
@@ -120,8 +120,22 @@ func add_item(item : Item):
 func enter_area(area):
 	print(area)
 	if area.is_in_group("interactable"):
-		interactables.push_front(area)
-		$InteractButton.visible = true
+		if heldItem == null:
+			if area.is_in_group("principalSpawner"):
+				interactables.push_front(area)
+				$InteractButton.visible = true
+		elif area.is_in_group("trash"):
+			interactables.push_front(area)
+			$InteractButton.visible = true
+		elif area.is_in_group("cookingSpawner") && heldItem.Main != null :
+			interactables.push_front(area)
+			$InteractButton.visible = true
+		elif area.is_in_group("sideDishSpawner") && heldItem.Cooking != null:
+			interactables.push_front(area)
+			$InteractButton.visible = true
+		elif area.is_in_group("dishExposer") && heldItem.Side != null:
+			interactables.push_front(area)
+			$InteractButton.visible = true
 
 func exit_area(area):
 	interactables.erase(area)
