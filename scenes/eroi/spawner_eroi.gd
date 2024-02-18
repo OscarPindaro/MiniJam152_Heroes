@@ -108,7 +108,7 @@ func on_kitchen_reached_by_hero(hero):
 	# Send hero to exit and disable area
 	hero.set_navigation_target(exitPoints[randi() % exitPoints.size()])
 	hero.monitoring = false
-	hero.is_going_out = true
+	hero.head_out()
 
 func restart_timer():
 	var time = max_wait_time
