@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/UI/menu/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://asset/UI/menu/menu_front.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://asset/UI/menu/fonts/DkCrayonCrumble-ddll.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://scenes/UI/menu/MainMenu.tres" type="Theme" id=6]
 [ext_resource path="res://asset/UI/menu/menu_back.png" type="Texture" id=7]
+[ext_resource path="res://asset/music/partA.wav" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -68,6 +69,7 @@ text = "Today's Menu
 "
 
 [node name="MainMenuTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
 
 [node name="CommandsButton" type="Button" parent="."]
 margin_left = 344.0
