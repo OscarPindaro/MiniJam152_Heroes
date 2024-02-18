@@ -296,6 +296,7 @@ height = 2.0
 
 [node name="Player" type="KinematicBody2D" groups=["player"]]
 script = ExtResource( 1 )
+movement_speed = 500
 
 [node name="WaiterSprite" type="AnimatedSprite" parent="."]
 visible = false

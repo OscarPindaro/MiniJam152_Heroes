@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/UI/menu/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://asset/UI/menu/menu_front.png" type="Texture" id=2]
@@ -6,10 +6,16 @@
 [ext_resource path="res://scenes/TestItem.tscn" type="PackedScene" id=4]
 [ext_resource path="res://asset/UI/menu/fonts/DkCrayonCrumble-ddll.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://scenes/UI/menu/MainMenu.tres" type="Theme" id=6]
-[ext_resource path="res://asset/UI/menu/menu_back.png" type="Texture" id=7]
+[ext_resource path="res://asset/UI/menu/menu_no_sfondo.png" type="Texture" id=7]
+[ext_resource path="res://asset/UI/menu/background.png" type="Texture" id=8]
+[ext_resource path="res://asset/music/partA(intro).wav" type="AudioStream" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -37,72 +43,84 @@ theme = ExtResource( 6 )
 script = ExtResource( 3 )
 game_scene = ExtResource( 4 )
 
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 516, 359 )
+texture = ExtResource( 8 )
+
 [node name="BackgroundMenu" type="Sprite" parent="."]
-position = Vector2( 523.5, 415.5 )
+position = Vector2( 523.5, 365 )
 scale = Vector2( 0.827, 0.827 )
 texture = ExtResource( 7 )
 
 [node name="Title" type="Label" parent="."]
 margin_left = 303.0
-margin_top = 204.0
+margin_top = 151.0
 margin_right = 743.0
-margin_bottom = 313.0
+margin_bottom = 260.0
 custom_fonts/font = SubResource( 1 )
 text = "Dungeon Kitchen"
 align = 1
 valign = 1
 
-[node name="mainmenu" type="Label" parent="."]
-margin_left = 439.0
-margin_top = 339.0
-margin_right = 627.0
-margin_bottom = 379.0
-text = "Today's menu"
+[node name="mainmenu" type="RichTextLabel" parent="."]
+margin_left = 448.0
+margin_top = 287.0
+margin_right = 704.0
+margin_bottom = 367.0
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_text = "Today's Menu
+"
+text = "Today's Menu
+"
 
 [node name="MainMenuTheme" type="AudioStreamPlayer" parent="."]
-
-[node name="PlayButton" type="Button" parent="."]
-margin_left = 318.0
-margin_top = 404.0
-margin_right = 728.0
-margin_bottom = 473.0
-text = " Play . . . . . . . . .  15c"
-
-[node name="FrontMenu" type="Sprite" parent="."]
-position = Vector2( 523.5, 415.5 )
-scale = Vector2( 0.827, 0.827 )
-texture = ExtResource( 2 )
+stream = ExtResource( 9 )
 
 [node name="CommandsButton" type="Button" parent="."]
-margin_left = 334.0
-margin_top = 495.0
-margin_right = 711.0
-margin_bottom = 535.0
+margin_left = 344.0
+margin_top = 444.0
+margin_right = 721.0
+margin_bottom = 484.0
 text = "Commands . . . . . . 8c"
 
 [node name="CreditsButton" type="Button" parent="."]
-margin_left = 329.0
-margin_top = 570.0
-margin_right = 722.0
-margin_bottom = 610.0
+margin_left = 333.0
+margin_top = 520.0
+margin_right = 726.0
+margin_bottom = 560.0
 text = "Credits . . . . . . .  12c"
+
+[node name="PlayButton" type="Button" parent="."]
+margin_left = 324.0
+margin_top = 354.0
+margin_right = 734.0
+margin_bottom = 423.0
+text = " Play . . . . . . . . .  15c"
+
+[node name="FrontMenu" type="Sprite" parent="."]
+position = Vector2( 529, 365 )
+scale = Vector2( 0.827, 0.827 )
+texture = ExtResource( 2 )
 
 [node name="CommandOverlay" parent="." instance=ExtResource( 1 )]
 visible = false
-margin_right = -165.0
+margin_left = 193.0
+margin_top = 4.0
+margin_right = -155.0
+margin_bottom = 1.0
 
 [node name="CommandsText" parent="CommandOverlay" index="0"]
-margin_left = 106.0
-margin_top = 137.0
-margin_right = 574.0
-margin_bottom = 862.0
+margin_left = 110.0
+margin_top = 73.0
+margin_right = 578.0
+margin_bottom = 798.0
 custom_fonts/font = SubResource( 2 )
 text = "In this game, your objective is to serve delicious food to a horde of heros.
-Every hero comes from a different race or background that will determine their preferences on food.
+Every hero comes from a different species or background that will determine their preferences on food.
 
 The restaurant is split into two areas:
 - The dining room, where heroes come and express their preferences. If you are close enough, you may even be able to know their specific tastes.
-- The kitchen, where food is prepared and cooked. A dish consists of a main ingredients (meat, fish, eggplant or mushrooms), a preparation (fried, diced or grilled) and a side (salad, tomatoes or french fries). 
+- The kitchen, where food is prepared and cooked. A dish consists of a main ingredient (meat, fish, eggplant or mushrooms), a preparation (fried, diced or grilled) and a side (salad, tomatoes or french fries). 
 
 KEYS
 WASD / Arrow Keys: Move 
@@ -110,23 +128,28 @@ E / J: interact with objects"
 valign = 0
 
 [node name="Close" parent="CommandOverlay" index="1"]
-margin_left = 214.0
-margin_top = 700.0
-margin_right = 469.0
-margin_bottom = 771.0
+margin_left = 209.0
+margin_top = 614.0
+margin_right = 464.0
+margin_bottom = 685.0
 custom_colors/font_color = Color( 0.905882, 0.686275, 0.85098, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Close"
 
 [node name="CreditsOverlay" parent="." instance=ExtResource( 1 )]
 visible = false
-margin_right = -168.0
+margin_left = 193.0
+margin_top = 4.0
+margin_right = -158.0
+margin_bottom = 1.0
 
 [node name="CommandsText" parent="CreditsOverlay" index="0"]
-margin_top = 78.0
-margin_bottom = 726.0
+margin_left = 100.0
+margin_top = 20.0
+margin_right = 585.0
+margin_bottom = 668.0
 custom_fonts/font = SubResource( 4 )
-text = "This game is brought you by the amazing stuff of the Wauhaus
+text = "This game is brought you by the amazing staff of the Wauhaus
 
 Developers:
 - GoblinNasuto
@@ -147,17 +170,17 @@ External Sources:
 - Coins for coin pile: @Elthen"
 
 [node name="Close" parent="CreditsOverlay" index="1"]
-margin_left = 207.0
-margin_top = 691.0
-margin_right = 462.0
-margin_bottom = 762.0
+margin_left = 208.0
+margin_top = 621.0
+margin_right = 463.0
+margin_bottom = 692.0
 custom_colors/font_color = Color( 0.905882, 0.686275, 0.85098, 1 )
 custom_fonts/font = SubResource( 5 )
 text = "Close"
 
-[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="CommandsButton" to="CommandOverlay" method="_on_activation_button_pressed"]
 [connection signal="pressed" from="CreditsButton" to="CreditsOverlay" method="_on_activation_button_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 
 [editable path="CommandOverlay"]
 [editable path="CreditsOverlay"]

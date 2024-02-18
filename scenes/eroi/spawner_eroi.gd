@@ -42,7 +42,7 @@ onready var hero_stats = [
 	Stats.new(
 		"orc",
 		orc_sprite,
-		50.0,
+		30.0,
 		{
 			"main": {"bistecca": 0.5, "pesce": 0.4, "fungo": 0.1, "melanzana": 0.0},
 			"cooking": {"fritto": 0.33, "griglia": 0.32, "tagliato": 0.35},
@@ -52,7 +52,7 @@ onready var hero_stats = [
 	Stats.new(
 		"elf",
 		elf_sprite,
-		60.0,
+		40.0,
 		{
 			"main": {"bistecca": 0.0, "pesce": 0.0, "fungo": 0.2, "melanzana": 0.8},
 			"cooking": {"fritto": 0.1, "griglia": 0.2, "tagliato": 0.7},
@@ -62,7 +62,7 @@ onready var hero_stats = [
 	Stats.new(
 		"dwarf",
 		dwarf_sprite,
-		40.0,
+		20.0,
 		{
 			"main": {"bistecca": 0.25, "pesce": 0.25, "fungo": 0.25, "melanzana": 0.25},
 			"cooking": {"fritto": 0.5, "griglia": 0.5, "tagliato": 0.35},
