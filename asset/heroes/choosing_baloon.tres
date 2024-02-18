@@ -1,0 +1,24 @@
+[gd_resource type="SpriteFrames" format=2]
+
+[resource]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "choosing",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "failure",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "partial",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "perfect",
+"speed": 5.0
+} ]
