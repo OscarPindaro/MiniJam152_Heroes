@@ -93,7 +93,7 @@ main = "fungo"
 
 [node name="ScoreController" parent="." instance=ExtResource( 7 )]
 position = Vector2( 0, -98 )
-score = 1.0
+score = 10.0
 menu_path = NodePath("../MenuController")
 ending_scene = "res://scenes/UI/menu/EndScene.tscn"
 

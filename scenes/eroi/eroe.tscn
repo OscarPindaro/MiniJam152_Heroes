@@ -7,7 +7,6 @@
 [ext_resource path="res://asset/tags/tagliato.png" type="Texture" id=5]
 [ext_resource path="res://asset/heroes/choosing_baloon.tres" type="SpriteFrames" id=6]
 
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 100.0
 
@@ -70,6 +69,8 @@ animation = "choosing"
 frame = 2
 
 [node name="FadeTimer" type="Timer" parent="ChoosingBaloon"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_eroe_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_eroe_body_exited"]
