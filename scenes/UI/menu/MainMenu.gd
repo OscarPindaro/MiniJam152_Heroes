@@ -6,13 +6,18 @@ export(PackedScene) var game_scene
 # var a = 2
 # var b = "text"
 
+var audioInteractionMainMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-
+	audioInteractionMainMenu = get_node("MainMenuTheme")
+	audioInteractionMainMenu.play()	
+	
 
 func _on_PlayButton_pressed():
 	get_tree().change_scene_to(game_scene)
+
+func _process(delta):
+	if audioInteractionMainMenu.is_playing() == false:
+		audioInteractionMainMenu.play()	
+	

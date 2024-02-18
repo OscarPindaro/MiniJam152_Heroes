@@ -46,7 +46,6 @@ outline_color = Color( 0.807843, 0.847059, 0.113725, 1 )
 font_data = ExtResource( 12 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 20
 font_data = ExtResource( 13 )
 
 [sub_resource type="SpriteFrames" id=1]
