@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://scenes/player/player.gd" type="Script" id=1]
 [ext_resource path="res://asset/UI/E.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://asset/player/cuoco/Goblin down Idle.png" type="Texture" id=10]
 [ext_resource path="res://asset/player/cuoco/goblin up Idle.png" type="Texture" id=11]
 [ext_resource path="res://asset/player/cuoco/Chef Side Idle-Sheet.png" type="Texture" id=12]
+[ext_resource path="res://scenes/Music/StepsStreamPlayer.tscn" type="PackedScene" id=13]
 
 [sub_resource type="AtlasTexture" id=79]
 flags = 4
@@ -314,3 +315,8 @@ z_index = 5
 stream = ExtResource( 4 )
 volume_db = -40.0
 autoplay = true
+
+[node name="KitchenSteps" parent="." instance=ExtResource( 13 )]
+is_kitchen = true
+
+[node name="RoomSteps" parent="." instance=ExtResource( 13 )]
