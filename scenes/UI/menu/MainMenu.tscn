@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/UI/menu/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://asset/UI/menu/menu_front.png" type="Texture" id=2]
@@ -10,6 +10,22 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 25
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 60
 font_data = ExtResource( 5 )
 
 [node name="MainMenu" type="Control"]
@@ -34,6 +50,13 @@ text = "Dungeon Kitchen"
 align = 1
 valign = 1
 
+[node name="mainmenu" type="Label" parent="."]
+margin_left = 439.0
+margin_top = 339.0
+margin_right = 627.0
+margin_bottom = 379.0
+text = "Today's menu"
+
 [node name="MainMenuTheme" type="AudioStreamPlayer" parent="."]
 
 [node name="PlayButton" type="Button" parent="."]
@@ -42,6 +65,11 @@ margin_top = 404.0
 margin_right = 728.0
 margin_bottom = 473.0
 text = " Play . . . . . . . . .  15c"
+
+[node name="FrontMenu" type="Sprite" parent="."]
+position = Vector2( 523.5, 415.5 )
+scale = Vector2( 0.827, 0.827 )
+texture = ExtResource( 2 )
 
 [node name="CommandsButton" type="Button" parent="."]
 margin_left = 334.0
@@ -59,23 +87,75 @@ text = "Credits . . . . . . .  12c"
 
 [node name="CommandOverlay" parent="." instance=ExtResource( 1 )]
 visible = false
+margin_right = -165.0
+
+[node name="CommandsText" parent="CommandOverlay" index="0"]
+margin_left = 106.0
+margin_top = 137.0
+margin_right = 574.0
+margin_bottom = 862.0
+custom_fonts/font = SubResource( 2 )
+text = "In this game, your objective is to serve delicious food to a horde of heros.
+Every hero comes from a different race or background that will determine their preferences on food.
+
+The restaurant is split into two areas:
+- The dining room, where heroes come and express their preferences. If you are close enough, you may even be able to know their specific tastes.
+- The kitchen, where food is prepared and cooked. A dish consists of a main ingredients (meat, fish, eggplant or mushrooms), a preparation (fried, diced or grilled) and a side (salad, tomatoes or french fries). 
+
+KEYS
+WASD / Arrow Keys: Move 
+E / J: interact with objects"
+valign = 0
+
+[node name="Close" parent="CommandOverlay" index="1"]
+margin_left = 214.0
+margin_top = 700.0
+margin_right = 469.0
+margin_bottom = 771.0
+custom_colors/font_color = Color( 0.905882, 0.686275, 0.85098, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Close"
 
 [node name="CreditsOverlay" parent="." instance=ExtResource( 1 )]
 visible = false
-color = Color( 0.305882, 0, 0, 1 )
+margin_right = -168.0
 
-[node name="mainmenu" type="Label" parent="."]
-margin_left = 439.0
-margin_top = 339.0
-margin_right = 627.0
-margin_bottom = 379.0
-text = "Today's menu"
+[node name="CommandsText" parent="CreditsOverlay" index="0"]
+margin_top = 78.0
+margin_bottom = 726.0
+custom_fonts/font = SubResource( 4 )
+text = "This game is brought you by the amazing stuff of the Wauhaus
 
-[node name="FrontMenu" type="Sprite" parent="."]
-position = Vector2( 523.5, 415.5 )
-scale = Vector2( 0.827, 0.827 )
-texture = ExtResource( 2 )
+Developers:
+- GoblinNasuto
+- Francesco Maffezzoli
+- matmangio Mangioni
+- Oscar Pindaro (Pinball)
+- Sebastian Sokol
+
+Art:
+- Vittorio Terzi
+- Fabio Losavio
+
+Music:
+- Hakim El Achak
+- Fabio Losavio
+
+External Sources:
+- candle and scroll: @nyk_nckcoins: @Elthen"
+
+[node name="Close" parent="CreditsOverlay" index="1"]
+margin_left = 207.0
+margin_top = 691.0
+margin_right = 462.0
+margin_bottom = 762.0
+custom_colors/font_color = Color( 0.905882, 0.686275, 0.85098, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Close"
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="CommandsButton" to="CommandOverlay" method="_on_activation_button_pressed"]
 [connection signal="pressed" from="CreditsButton" to="CreditsOverlay" method="_on_activation_button_pressed"]
+
+[editable path="CommandOverlay"]
+[editable path="CreditsOverlay"]
