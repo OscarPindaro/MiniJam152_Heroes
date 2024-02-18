@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dwarf_bad2.wav-01fbd7f0d88858b0232e0f90cb8d8190.sample"
+
+[deps]
+
+source_file="res://asset/soundeffects/VOX/dwarf_bad2.wav"
+dest_files=[ "res://.import/dwarf_bad2.wav-01fbd7f0d88858b0232e0f90cb8d8190.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

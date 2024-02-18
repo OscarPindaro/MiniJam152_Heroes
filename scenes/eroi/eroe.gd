@@ -38,7 +38,7 @@ var preferences : Dictionary # nella forma: {"main": Array, "cooking": Array, "s
 # Boolean variables
 var has_eaten = false
 var is_going_out = false
-var perfect = true
+var perfect = false
 
 # Set new navigation target
 func set_navigation_target(target : Vector2):
@@ -67,17 +67,21 @@ func get_dish_score(dish : Dictionary):
 	if dish == null:
 		score = failure_malus
 	else:
+		var perfect_dish = true
 		for key in preferences:
 			if preferences[key] == dish[key]:
 				score += scores[key]
-			elif preferences[key] != null:
-				perfect = false
+			else:
+				perfect_dish = false
 		
 		# Give bonus or malus
-		if perfect:
+		if perfect_dish:
 			score *= perfect_multiplier
 		elif score == 0:
 			score = failure_malus
+		
+		if perfect_dish:
+			perfect = true
 		
 	return score
 
