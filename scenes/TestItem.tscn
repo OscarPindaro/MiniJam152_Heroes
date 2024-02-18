@@ -92,7 +92,9 @@ restaurant_path = NodePath("../Stanze/RestarurantArea")
 
 [node name="ScoreController" parent="." instance=ExtResource( 7 )]
 position = Vector2( 0, -98 )
+score = 1.0
 menu_path = NodePath("../MenuController")
+ending_scene = "res://scenes/UI/menu/EndScene.tscn"
 
 [node name="MenuController" parent="." instance=ExtResource( 9 )]
 exposer_path1 = NodePath("../DishExposer")
