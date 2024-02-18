@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/ObjectContainers/DishExposer.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://asset/ObjectContainers/teca.png" type="Texture" id=3]
 [ext_resource path="res://asset/ObjectContainers/retro_teca.png" type="Texture" id=4]
 [ext_resource path="res://asset/TileMap/Mobiletto.png" type="Texture" id=5]
+[ext_resource path="res://scenes/UI/dish_baloon.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15, 15.5 )
@@ -43,6 +44,12 @@ wait_time = 0.2
 
 [node name="VanishingTimer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="BaloonAnchor" type="Position2D" parent="."]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="DishBaloon" parent="BaloonAnchor" instance=ExtResource( 6 )]
+position = Vector2( -70, 48 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

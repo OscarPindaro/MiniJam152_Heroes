@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/melanzane.png-b9e6e6c2c23fb11a7a7f6059dd3236d1.stex"
+path="res://.import/fungo.png-58e7351623f244880f3957a5e58f0c90.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/tags/melanzane.png"
-dest_files=[ "res://.import/melanzane.png-b9e6e6c2c23fb11a7a7f6059dd3236d1.stex" ]
+source_file="res://asset/tags/fungo.png"
+dest_files=[ "res://.import/fungo.png-58e7351623f244880f3957a5e58f0c90.stex" ]
 
 [params]
 

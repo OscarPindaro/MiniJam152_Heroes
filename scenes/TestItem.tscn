@@ -80,6 +80,7 @@ position = Vector2( 199, 694 )
 
 [node name="DishExposer" parent="." instance=ExtResource( 6 )]
 position = Vector2( 599.68, 567.981 )
+baloonSide = "right"
 
 [node name="DishExposer2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 407.129, 568.363 )
