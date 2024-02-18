@@ -12,8 +12,11 @@ onready var anim_sprite: AnimatedSprite = $AnimatedSprite
 
 var main_list = ['bistecca', 'pesce', 'melanzana', 'fungo']
 
+var audioInteractionPrincipal
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	audioInteractionPrincipal = get_node("AudioStreamPlayer2D")
 	load_ingredient()
 
 func set_main(new_main):
@@ -30,9 +33,9 @@ func _player_interact(item: Item) -> Item:
 		if item != null:
 			return item
 		# missing code because i need maff code
-		print (item_scene)
 		item = item_scene.instance()
 		item.Main = main
+		audioInteractionPrincipal.play()
 		return item
 	return item
 		
