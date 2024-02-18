@@ -74,6 +74,10 @@ func get_dish_score(dish : Dictionary):
 		
 	return score
 
+func head_out():
+	is_going_out = true
+	$AnimatedSprite.modulate = Color(1, 1, 1, 0.8) # Apply transparency
+
 func _ready():
 	# Set navigation destination
 	set_navigation_target(destination)
