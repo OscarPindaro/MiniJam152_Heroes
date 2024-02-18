@@ -101,4 +101,7 @@ wave_dim = 50
 menu_path = NodePath("../MenuController")
 spawnEdges = PoolVector2Array( 423, 40, 550, 40 )
 destEdges = PoolVector2Array( 407, 544, 600, 544 )
-exitPoints = PoolVector2Array( 915, 550, 115, 550 )
+exitPoints = PoolVector2Array( 823, 550, 183, 550 )
+
+[node name="Position2D" type="Position2D" parent="SpawnerEroi"]
+position = Vector2( 823, 550 )
