@@ -98,7 +98,6 @@ exposer_path2 = NodePath("../DishExposer2")
 
 [node name="SpawnerEroi" parent="." instance=ExtResource( 10 )]
 min_wait_time = 0.2
-rushHour_treshold = 4.9
 wave_dim = 50
 menu_path = NodePath("../MenuController")
 spawnEdges = PoolVector2Array( 423, -40, 550, -40 )
@@ -108,3 +107,4 @@ exitPoints = PoolVector2Array( 823, 550, 183, 550 )
 [node name="RushHour" parent="." instance=ExtResource( 11 )]
 position = Vector2( 294, 40 )
 rush_hour_emitter_path = NodePath("../SpawnerEroi")
+flicker_delta = 0.2
