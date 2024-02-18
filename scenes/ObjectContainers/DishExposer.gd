@@ -16,12 +16,18 @@ func _ready():
 func _player_interact(item: Item) -> Item:
 	if item == null:
 		return null
+	if item.Side == null:
+		return item
 	if dish != null:
 		dish.queue_free()
-	self.add_child(item)
+	$ItemAnchor.add_child(item)
 
 	item.position = Vector2.ZERO
 	dish = item
+	$FoodTimer.stop()
+	$FlickerTimer.stop()
+	$VanishingTimer.stop()
+	$FoodTimer.start()
 	# samuele se, era none l'item, deve fare add_child
 	return null
 	
@@ -43,3 +49,20 @@ func _on_Area2D_body_entered(body:Node):
 func _on_Area2D_body_exited(body:Node):
 	if body.is_in_group("player"):
 		body.exit_area(self)
+
+
+func _on_FoodTimer_timeout():
+	$FoodTimer.stop()
+	$FlickerTimer.start()
+	$VanishingTimer.start()
+
+
+func _on_FlickerTimer_timeout():
+	dish.visible = !dish.visible
+
+
+func _on_VanishingTimer_timeout():
+	$VanishingTimer.stop()
+	dish.queue_free()
+	dish = null
+	$FlickerTimer.stop()

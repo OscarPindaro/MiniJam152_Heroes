@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/teca.png-37de87f494196627b9c8d505923ca01d.stex"
+path="res://.import/teca.png-1e63af92d92d83e2da049978c92ee8a6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/Item/teca.png"
-dest_files=[ "res://.import/teca.png-37de87f494196627b9c8d505923ca01d.stex" ]
+source_file="res://asset/ObjectContainers/teca.png"
+dest_files=[ "res://.import/teca.png-1e63af92d92d83e2da049978c92ee8a6.stex" ]
 
 [params]
 
