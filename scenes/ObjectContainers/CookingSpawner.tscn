@@ -40,7 +40,7 @@ extents = Vector2( 16, 11 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 14, 13 )
 
-[node name="CookingSpawner" type="StaticBody2D" groups=["interactable"]]
+[node name="CookingSpawner" type="StaticBody2D" groups=["cookingSpawner", "interactable"]]
 script = ExtResource( 1 )
 
 [node name="Mobiletto" type="Sprite" parent="."]
