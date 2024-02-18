@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://scenes/player/player.gd" type="Script" id=1]
 [ext_resource path="res://asset/UI/E.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://asset/player/cuoco/Goblin down Idle.png" type="Texture" id=10]
 [ext_resource path="res://asset/player/cuoco/goblin up Idle.png" type="Texture" id=11]
 [ext_resource path="res://asset/player/cuoco/Chef Side Idle-Sheet.png" type="Texture" id=12]
+[ext_resource path="res://asset/player/cuoco/Chef Side walk-Sheet.png" type="Texture" id=13]
 
 [sub_resource type="AtlasTexture" id=79]
 flags = 4
@@ -196,25 +197,35 @@ flags = 4
 atlas = ExtResource( 8 )
 region = Rect2( 160, 0, 32, 64 )
 
-[sub_resource type="AtlasTexture" id=68]
+[sub_resource type="AtlasTexture" id=101]
 flags = 4
-atlas = ExtResource( 12 )
+atlas = ExtResource( 13 )
 region = Rect2( 0, 0, 32, 64 )
 
-[sub_resource type="AtlasTexture" id=69]
+[sub_resource type="AtlasTexture" id=102]
 flags = 4
-atlas = ExtResource( 12 )
+atlas = ExtResource( 13 )
 region = Rect2( 32, 0, 32, 64 )
 
-[sub_resource type="AtlasTexture" id=70]
+[sub_resource type="AtlasTexture" id=103]
 flags = 4
-atlas = ExtResource( 12 )
+atlas = ExtResource( 13 )
 region = Rect2( 64, 0, 32, 64 )
 
-[sub_resource type="AtlasTexture" id=71]
+[sub_resource type="AtlasTexture" id=104]
 flags = 4
-atlas = ExtResource( 12 )
+atlas = ExtResource( 13 )
 region = Rect2( 96, 0, 32, 64 )
+
+[sub_resource type="AtlasTexture" id=105]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 128, 0, 32, 64 )
+
+[sub_resource type="AtlasTexture" id=106]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 160, 0, 32, 64 )
 
 [sub_resource type="AtlasTexture" id=72]
 flags = 4
@@ -268,7 +279,7 @@ animations = [ {
 "name": "move_down",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ) ],
+"frames": [ SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ) ],
 "loop": true,
 "name": "move_horizontal",
 "speed": 5.0
@@ -280,7 +291,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=33]
-height = 24.0
+height = 2.0
 
 [node name="Player" type="KinematicBody2D" groups=["player"]]
 script = ExtResource( 1 )
@@ -297,12 +308,13 @@ animation = "move_up"
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 12 )
+position = Vector2( 0, 22 )
 shape = SubResource( 33 )
 
 [node name="InteractButton" type="Sprite" parent="."]
 visible = false
 position = Vector2( -24, -22 )
+z_index = 3
 texture = ExtResource( 2 )
 
 [node name="ItemAnchor" type="Position2D" parent="."]
