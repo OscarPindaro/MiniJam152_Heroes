@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/Music/StepsStreamPlayer.gd" type="Script" id=1]
+
+[node name="StepsStreamPlayer" type="AudioStreamPlayer"]
+script = ExtResource( 1 )
+
+[connection signal="finished" from="." to="." method="_on_StepsStreamPlayer_finished"]

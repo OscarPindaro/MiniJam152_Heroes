@@ -10,6 +10,10 @@ export var restaurant_path: NodePath
 var kitchen_node = null
 var restaurant_node = null
 
+onready var kitchen_steps_player: AudioStreamPlayer = $KitchenSteps
+onready var restaurant_steps_player: AudioStreamPlayer= $RoomSteps
+onready var curr_steps_player: AudioStreamPlayer = kitchen_steps_player
+
 # Player velocity
 var velocity
 
@@ -95,6 +99,7 @@ func _physics_process(_delta):
 	
 	
 	# Animations
+
 	if target_velocity == Vector2.ZERO:
 		sprite.animation = "idle"
 	elif target_velocity.x > 0:
@@ -110,7 +115,13 @@ func _physics_process(_delta):
 		sprite.animation = "move_up"
 		sprite.flip_h = false;
 	sprite.play()
-		
+
+	# music player
+	if target_velocity == Vector2.ZERO:
+		curr_steps_player.stop()
+	else:
+		if not curr_steps_player.playing:
+			curr_steps_player.play()
 		
 func add_item(item : Item):
 	if(item != null):
@@ -158,15 +169,22 @@ func on_player_exit():
 	
 func _on_kitchen_step(body):
 	print('cucina')
+	# sprites
 	sprite.hide()
 	sprite = $CookSprite
 	sprite.show()
+	# steps
+	curr_steps_player.stop()
+	curr_steps_player = kitchen_steps_player
 
 func _on_restaurant_step(body):
 	print('ristorante')
 	sprite.hide()
 	sprite = $WaiterSprite
 	sprite.show()
+	# steps
+	curr_steps_player.stop()
+	curr_steps_player = restaurant_steps_player
 	
 	
 	
