@@ -2,6 +2,7 @@ extends Node2D
 
 export var min_wait_time : float = 2
 export var max_wait_time : float = 5
+export var rushHour_treshold : float = 1.5
 export var wave_dim = 100
 
 export var menu_path : NodePath = "MenuController"
@@ -9,11 +10,13 @@ onready var menu = get_node(menu_path)
 
 onready var player = get_tree().root.get_node("TestItem").get_node("Player")
 
-
-
 export var spawnEdges : PoolVector2Array
 export var destEdges : PoolVector2Array
 export var exitPoints : PoolVector2Array
+
+signal rushHour_start()
+signal rushHour_end()
+var is_rushHour = false
 
 var spawn_num = 0
 
@@ -126,6 +129,15 @@ func restart_timer():
 	else:
 		var t = float(spawn_num - half_wave) / half_wave
 		time = max_wait_time * t + min_wait_time * (1 - t)
+	
+	if not is_rushHour and time <= rushHour_treshold:
+		emit_signal("rushHour_start")
+		is_rushHour = true
+		print("START RUSH HOUR")
+	elif is_rushHour and time > rushHour_treshold:
+		emit_signal("rushHour_end")
+		is_rushHour = false
+		print("END RUSH HOUR")
 	
 	$SpawnTimer.start(time)
 	spawn_num += 1
