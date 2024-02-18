@@ -93,7 +93,6 @@ func _physics_process(_delta):
 	
 	
 	# Animations
-	print(target_velocity)
 	if target_velocity == Vector2.ZERO:
 		sprite.animation = "idle"
 	elif target_velocity.x > 0:
