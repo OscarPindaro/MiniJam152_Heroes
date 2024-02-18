@@ -121,10 +121,12 @@ custom_fonts/font = SubResource( 3 )
 script = ExtResource( 2 )
 
 [node name="GoldPile" type="AnimatedSprite" parent="."]
-position = Vector2( 87, 706 )
+position = Vector2( 95, 697 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
-animation = "80g"
+animation = "70g"
+offset = Vector2( 0, -30 )
 script = ExtResource( 11 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 37, -9 )
