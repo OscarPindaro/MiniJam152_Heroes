@@ -3,7 +3,7 @@ extends Area2D
 const playerGroup = "player"
 
 const tag_texture_scene = preload("res://scenes/tag_texture.tscn")
-const textures_base_path = "res://asset/texture/"
+const textures_base_path = "res://asset/tags/"
 const textures_extension = ".png"
 
 # Score 
@@ -16,8 +16,15 @@ const perfect_multiplier = 1.5
 const failure_malus = -2
 
 # Signals that the hero has reached the kitchen
-signal reached_kitchen(eroe)
+signal kitchen_reached(eroe)
 signal eaten_dish(dish_num, score)
+
+#Signal that that the player as entred the hero
+signal player_player_enter()
+signal player_player_exit()
+
+# Time to wait before deciding for a dish
+const waitTime = 3.0
 
 # To assign before adding as a child
 var sprite : SpriteFrames
@@ -25,8 +32,9 @@ var destination : Vector2
 var speed : float
 var preferences : Dictionary # nella forma: {"main": Array, "cooking": Array, "side": Array}
 
-# Sets if it has to eat
+# Boolean variables
 var has_eaten = false
+var is_going_out = false
 
 # Set new navigation target
 func set_navigation_target(target : Vector2):
@@ -57,9 +65,9 @@ func get_dish_score(dish : Dictionary):
 	else:
 		var perfect = true
 		for key in preferences:
-			if preferences[key].has(dish[key]):
+			if preferences[key] == dish[key]:
 				score += scores[key]
-			elif preferences[key].size() > 0:
+			elif preferences[key] != null:
 				perfect = false
 		
 		# Give bonus or malus
@@ -82,19 +90,23 @@ func _ready():
 	# Populate baloon box by instancing tag_texture(s)
 	if preferences != null:
 		for dish_part in preferences:
-			for tag in preferences[dish_part]:
-				var individual_tag = tag_texture_scene.instance()
+			var tag = preferences[dish_part]
+			var individual_tag = tag_texture_scene.instance()
 			
-				var texture_path = textures_base_path + tag + textures_extension
-				individual_tag.tag_texture = load(texture_path)
+			var texture_path = textures_base_path + tag + textures_extension
+			individual_tag.tag_texture = load(texture_path)
 			
-				$BaloonUI/TagsContainer.add_child(individual_tag)
+			$BaloonUI/TagsContainer.add_child(individual_tag)
 
 func _physics_process(delta):
 	if $NavigationAgent2D.is_target_reached():
 		if not has_eaten:
-			emit_signal("reached_kitchen", self)
+			# Wait for [waitTime] sec and then emit signal that a decision has been made
+			$Timer.connect("timeout", self, "_on_waitTime_ended")
+			$Timer.start(waitTime)
 			has_eaten = true
+		elif is_going_out:
+			queue_free()
 		return
 	
 	# Move to next location accounting for speed and delta
@@ -104,10 +116,15 @@ func _physics_process(delta):
 	var velocity = direction * movement_delta
 	global_position = global_position + velocity
 
+func _on_waitTime_ended():
+	emit_signal("kitchen_reached", self)
+
 func _on_eroe_body_entered(body):
 	if body.is_in_group(playerGroup):
 		$BaloonUI.visible = true
+		emit_signal("player_player_enter")
 
 func _on_eroe_body_exited(body):
 	if body.is_in_group(playerGroup):
 		$BaloonUI.visible = false
+		emit_signal("player_player_exit")

@@ -22,7 +22,7 @@ var base_zoom = Vector2.ZERO
 
 var was_moving : bool
 
-var number_of_proxy_area = 0
+var heroStep 
 
 func _ready():
 	# Subscribe to all _hero_entered and _hero_exited signals
@@ -35,7 +35,9 @@ func _ready():
 	# Get camera zoom
 	#base_zoom = $PlayerCamera.zoom
 	$AnimatedSprite.animation = "idle_down"
-
+	
+	heroStep = get_node("AudioStreamPlayer2D")
+	
 func _process(_delta):
 	
 	#print(interactables)
@@ -49,9 +51,6 @@ func _process(_delta):
 		var input = interactables[0]._player_interact(heldItem)
 		self.add_item(input)
 	
-	
-	if number_of_proxy_area > 0:
-		_play_sound()
 
 func _physics_process(_delta):
 	
@@ -124,16 +123,11 @@ func exit_area(area):
 # 	interactable.connect("body_entered", self, "enter_area")
 # 	interactable.connect("body_exited", self, "exit_area")
 
-func _on_body_enter(area):
-	number_of_proxy_area = number_of_proxy_area + 1
 
-func _on_body_exit(area):
-	number_of_proxy_area = number_of_proxy_area - 1
+func on_player_enter():
+	if heroStep.volume_db < 30:
+		heroStep.volume_db += 10
 	
-
-func _play_sound():
-	var tree = get_tree()
-	var tree_root = tree.root
-	var test = tree_root.get_node("TestItem").get_node("Npc").get_node("AudioStreamPlayer2D")
-	test.play()
+func on_player_exit():
+	heroStep.volume_db -= 10
 	

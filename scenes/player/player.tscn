@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/player/player.gd" type="Script" id=1]
 [ext_resource path="res://asset/UI/E.png" type="Texture" id=2]
 [ext_resource path="res://asset/player/Goblin Animation sheet.png" type="Texture" id=3]
+[ext_resource path="res://asset/AudioTemp/sneaker-shoe-on-concrete-floor-slow-pace-2-www.FesliyanStudios.com.mp3" type="AudioStream" id=4]
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 3 )
@@ -96,3 +97,8 @@ texture = ExtResource( 2 )
 [node name="ItemAnchor" type="Position2D" parent="."]
 position = Vector2( 0, -10 )
 z_index = 5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -40.0
+autoplay = true
