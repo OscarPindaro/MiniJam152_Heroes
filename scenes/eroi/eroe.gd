@@ -28,6 +28,7 @@ signal player_player_exit()
 const waitTime = 3.0
 
 # To assign before adding as a child
+var species : String
 var sprite : SpriteFrames
 var destination : Vector2
 var speed : float
@@ -108,6 +109,10 @@ func _ready():
 			#var texture_path = textures_base_path + tag + textures_extension
 			#individual_tag.tag_texture = load(texture_path)
 			#$BaloonUI/TagsContainer.add_child(individual_tag)
+	
+	#If dwarf move baloon down
+	if species == "dwarf":
+		$BaloonUI.position.y += 16
 
 func _physics_process(delta):
 	if $NavigationAgent2D.is_target_reached():
@@ -116,6 +121,7 @@ func _physics_process(delta):
 			$Timer.connect("timeout", self, "_on_waitTime_ended")
 			$Timer.start(waitTime)
 			has_eaten = true
+			monitoring = false
 			
 			#Set idle animation
 			$AnimatedSprite.animation = "idle"
