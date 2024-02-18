@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/step_kitchen7.wav-c6c5dbe1f6be2936fe883441f30af398.sample"
+
+[deps]
+
+source_file="res://asset/soundeffects/steps/step_kitchen7.wav"
+dest_files=[ "res://.import/step_kitchen7.wav-c6c5dbe1f6be2936fe883441f30af398.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
