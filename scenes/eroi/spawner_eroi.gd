@@ -7,6 +7,10 @@ export var wave_dim = 100
 export var menu_path : NodePath = "MenuController"
 onready var menu = get_node(menu_path)
 
+onready var player = get_tree().root.get_node("TestItem").get_node("Player")
+
+
+
 export var spawnEdges : PoolVector2Array
 export var destEdges : PoolVector2Array
 export var exitPoints : PoolVector2Array
@@ -96,6 +100,10 @@ func spawn_hero():
 	hero.connect("kitchen_reached", menu, "on_kitchen_reached")
 	hero.connect("kitchen_reached", self, "on_kitchen_reached_by_hero")
 
+	# Subscribe the player to the hero's "enter/exit" signal
+	hero.connect("player_player_enter", player, "on_player_enter")
+	hero.connect("player_player_exit", player, "on_player_exit")
+
 func on_kitchen_reached_by_hero(hero):
 	# Send hero to exit and disable area
 	hero.set_navigation_target(exitPoints[randi() % exitPoints.size()])
@@ -128,3 +136,5 @@ func _ready():
 func _on_SpawnTimer_timeout():
 	spawn_hero()
 	restart_timer()
+
+

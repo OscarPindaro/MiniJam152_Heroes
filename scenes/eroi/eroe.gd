@@ -19,6 +19,10 @@ const failure_malus = -2
 signal kitchen_reached(eroe)
 signal eaten_dish(dish_num, score)
 
+#Signal that that the player as entred the hero
+signal player_player_enter()
+signal player_player_exit()
+
 # Time to wait before deciding for a dish
 const waitTime = 3.0
 
@@ -118,7 +122,9 @@ func _on_waitTime_ended():
 func _on_eroe_body_entered(body):
 	if body.is_in_group(playerGroup):
 		$BaloonUI.visible = true
+		emit_signal("player_player_enter")
 
 func _on_eroe_body_exited(body):
 	if body.is_in_group(playerGroup):
 		$BaloonUI.visible = false
+		emit_signal("player_player_exit")
