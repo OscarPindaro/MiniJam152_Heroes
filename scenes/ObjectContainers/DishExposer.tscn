@@ -8,7 +8,7 @@
 [ext_resource path="res://scenes/UI/dish_baloon.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15, 15.5 )
+extents = Vector2( 17, 10.25 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 16, 16 )
@@ -52,8 +52,8 @@ scale = Vector2( 0.5, 0.5 )
 position = Vector2( -70, 48 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 6.25 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
