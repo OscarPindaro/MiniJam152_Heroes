@@ -23,13 +23,13 @@ var elf_sprite = preload("res://asset/heroes/elf.tres")
 var dwarf_sprite = preload("res://asset/heroes/dwarf.tres")
 
 class Stats:
-	var name : String
+	var species : String
 	var sprite : SpriteFrames
 	var speed : float
 	var preferences : Dictionary
 	
-	func _init(my_name, my_sprite, my_speed, my_preferences):
-		name = my_name
+	func _init(my_species, my_sprite, my_speed, my_preferences):
+		species = my_species
 		sprite = my_sprite
 		speed = my_speed
 		preferences = my_preferences
@@ -89,6 +89,7 @@ func spawn_hero():
 	
 	# Spawn the hero and populate its parameters
 	var hero = hero_scene.instance()
+	hero.species = hero_stats[species_index].species
 	hero.sprite = hero_stats[species_index].sprite
 	hero.speed = hero_stats[species_index].speed
 	hero.preferences = preferences
