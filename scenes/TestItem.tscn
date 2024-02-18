@@ -15,16 +15,8 @@
 
 [node name="TestItem" type="Node2D"]
 
-<<<<<<< HEAD
-[node name="MapAreas" parent="." instance=ExtResource( 8 )]
-position = Vector2( 151, 329 )
-
-[node name="RestarurantArea" parent="MapAreas" instance=ExtResource( 12 )]
-position = Vector2( -223, -317 )
-scale = Vector2( 1.15593, 1.19116 )
-
-[node name="KitchenArea" parent="MapAreas" instance=ExtResource( 11 )]
-position = Vector2( -173, -278 )
+[node name="Mappa" parent="." instance=ExtResource( 8 )]
+position = Vector2( 151, 231 )
 
 [node name="Principals" type="Node2D" parent="."]
 position = Vector2( -47, -99 )
@@ -86,19 +78,17 @@ side_dish = "patate"
 [node name="TrashBin" parent="." instance=ExtResource( 1 )]
 position = Vector2( 199, 694 )
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
-<<<<<<< HEAD
-position = Vector2( 745, 737 )
-
-movement_speed = 200
-kitchen_path = NodePath("../MapAreas/KitchenArea")
-restaurant_path = NodePath("../MapAreas/RestarurantArea")
-
 [node name="DishExposer" parent="." instance=ExtResource( 6 )]
 position = Vector2( 599.68, 567.981 )
 
 [node name="DishExposer2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 407.129, 568.363 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 802, 641 )
+movement_speed = 200
+kitchen_path = NodePath("../Stanze/KitchenArea")
+restaurant_path = NodePath("../Stanze/RestarurantArea")
 
 [node name="ScoreController" parent="." instance=ExtResource( 7 )]
 position = Vector2( 0, -98 )
@@ -115,3 +105,12 @@ menu_path = NodePath("../MenuController")
 spawnEdges = PoolVector2Array( 423, -40, 550, -40 )
 destEdges = PoolVector2Array( 407, 544, 600, 544 )
 exitPoints = PoolVector2Array( 823, 550, 183, 550 )
+
+[node name="Stanze" type="Node2D" parent="."]
+
+[node name="RestarurantArea" parent="Stanze" instance=ExtResource( 12 )]
+position = Vector2( -62, -86 )
+scale = Vector2( 1.15593, 1.19116 )
+
+[node name="KitchenArea" parent="Stanze" instance=ExtResource( 11 )]
+position = Vector2( -30, -50 )
