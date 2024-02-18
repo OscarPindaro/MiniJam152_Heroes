@@ -75,6 +75,7 @@ text = "Today's Menu
 
 [node name="MainMenuTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+bus = "Musica"
 
 [node name="CommandsButton" type="Button" parent="."]
 margin_left = 344.0
