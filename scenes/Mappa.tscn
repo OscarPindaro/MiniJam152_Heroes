@@ -716,11 +716,11 @@ position = Vector2( 336, -211 )
 shape = SubResource( 44 )
 
 [node name="LeftDoor" type="Sprite" parent="Door"]
-position = Vector2( 70, 16 )
+position = Vector2( -93, 16 )
 texture = ExtResource( 9 )
 
 [node name="RightDoor" type="Sprite" parent="Door"]
-position = Vector2( -70, 16 )
+position = Vector2( 93, 16 )
 texture = ExtResource( 10 )
 
 [node name="RestaurantDoor" parent="." instance=ExtResource( 1 )]
