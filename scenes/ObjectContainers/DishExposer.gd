@@ -6,11 +6,16 @@ extends StaticBody2D
 # var b = "text"
 var item_scene = load("res://scenes/Objects/Item.tscn")
 export var main = ""
+export var baloonSide = "left"
+var baloonSide_list = ['right', 'left']
 
 var dish: Item = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	assert(baloonSide in baloonSide_list)
+	if(baloonSide == "right"):
+		$BaloonAnchor.transform.x = - $BaloonAnchor.transform.x
 	pass # Replace with function body.
 
 func _player_interact(item: Item) -> Item:
@@ -27,6 +32,9 @@ func _player_interact(item: Item) -> Item:
 	$FoodTimer.stop()
 	$FlickerTimer.stop()
 	$VanishingTimer.stop()
+	
+	$BaloonAnchor.get_node("DishBaloon").update_dish(dish.get_property())
+	
 	$FoodTimer.start()
 	# samuele se, era none l'item, deve fare add_child
 	return null
@@ -65,4 +73,5 @@ func _on_VanishingTimer_timeout():
 	$VanishingTimer.stop()
 	dish.queue_free()
 	dish = null
+	$BaloonAnchor.get_node("DishBaloon").update_dish(null)
 	$FlickerTimer.stop()

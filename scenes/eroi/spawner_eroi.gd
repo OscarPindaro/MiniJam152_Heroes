@@ -44,7 +44,7 @@ onready var hero_stats = [
 		orc_sprite,
 		50.0,
 		{
-			"main": {"carne": 0.5, "pesce": 0.4, "funghi": 0.1, "melanzane": 0.0},
+			"main": {"carne": 0.5, "pesce": 0.4, "fungo": 0.1, "melanzana": 0.0},
 			"cooking": {"fritto": 0.33, "grigliato": 0.32, "crudo": 0.35},
 			"side": {"patate": 0.9, "insalata": 0.0, "pomodori": 0.1}
 		}
@@ -54,7 +54,7 @@ onready var hero_stats = [
 		elf_sprite,
 		60.0,
 		{
-			"main": {"carne": 0.0, "pesce": 0.0, "funghi": 0.2, "melanzane": 0.8},
+			"main": {"carne": 0.0, "pesce": 0.0, "fungo": 0.2, "melanzana": 0.8},
 			"cooking": {"fritto": 0.1, "grigliato": 0.2, "crudo": 0.7},
 			"side": {"patate": 0.1, "insalata": 0.45, "pomodori": 0.45}
 		}
@@ -64,7 +64,7 @@ onready var hero_stats = [
 		dwarf_sprite,
 		40.0,
 		{
-			"main": {"carne": 0.25, "pesce": 0.25, "funghi": 0.25, "melanzane": 0.25},
+			"main": {"carne": 0.25, "pesce": 0.25, "fungo": 0.25, "melanzana": 0.25},
 			"cooking": {"fritto": 0.5, "grigliato": 0.5, "crudo": 0.35},
 			"side": {"patate": 0.7, "insalata": 0.1, "pomodori": 0.2}
 		}
