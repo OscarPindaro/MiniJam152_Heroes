@@ -70,10 +70,10 @@ script = ExtResource( 1 )
 score = 46.0
 
 [node name="Score" type="Label" parent="."]
-margin_left = 24.0
-margin_top = 807.0
-margin_right = 78.0
-margin_bottom = 822.0
+margin_left = 45.6003
+margin_top = 494.516
+margin_right = 99.6003
+margin_bottom = 509.516
 custom_colors/font_color = Color( 0.854902, 0.878431, 0.105882, 1 )
 custom_fonts/font = SubResource( 2 )
 
