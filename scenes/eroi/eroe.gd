@@ -2,9 +2,10 @@ extends Area2D
 
 const playerGroup = "player"
 
-const tag_texture_scene = preload("res://scenes/tag_texture.tscn")
 const textures_base_path = "res://asset/tags/"
 const textures_extension = ".png"
+
+const horizontal_anim_treshold = 0.35
 
 # Score 
 const scores = {
@@ -101,7 +102,6 @@ func _ready():
 		$BaloonUI/Sprites/CookingTexture.texture = cookingTexture
 		$BaloonUI/Sprites/SideTexture.texture = sideTexture
 		
-		
 		#for dish_part in preferences:
 			#var tag = preferences[dish_part]
 			#var individual_tag = tag_texture_scene.instance()
@@ -116,6 +116,10 @@ func _physics_process(delta):
 			$Timer.connect("timeout", self, "_on_waitTime_ended")
 			$Timer.start(waitTime)
 			has_eaten = true
+			
+			#Set idle animation
+			$AnimatedSprite.animation = "idle"
+			
 		elif is_going_out:
 			queue_free()
 		return
@@ -125,6 +129,17 @@ func _physics_process(delta):
 	var direction = (next_location - global_position).normalized()
 	var movement_delta = speed * delta
 	var velocity = direction * movement_delta
+	
+	# Set animation based on velocity
+	if abs(direction.x) >= horizontal_anim_treshold or direction.y < 0:
+		$AnimatedSprite.animation = "horizontal"
+		if velocity.x < 0: 
+			$AnimatedSprite.flip_h = true
+		else:
+			$AnimatedSprite.flip_h = false
+	elif direction.y > 0:
+		$AnimatedSprite.animation = "down"
+	
 	global_position = global_position + velocity
 
 func _on_waitTime_ended():

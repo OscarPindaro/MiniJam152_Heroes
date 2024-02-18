@@ -1,12 +1,20 @@
-[gd_resource type="SpriteFrames" load_steps=2 format=2]
-
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[gd_resource type="SpriteFrames" format=2]
 
 [resource]
 resource_local_to_scene = true
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
+"frames": [  ],
 "loop": true,
-"name": "default",
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "horizontal",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "idle",
 "speed": 5.0
 } ]
