@@ -26,6 +26,7 @@ func _player_interact(item: Item) -> Item:
 	if dish != null:
 		dish.queue_free()
 	$ItemAnchor.add_child(item)
+	$AudioStreamPlayer.play()
 
 	item.position = Vector2.ZERO
 	dish = item

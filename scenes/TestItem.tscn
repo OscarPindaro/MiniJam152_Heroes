@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scenes/ObjectContainers/TrashBin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/ObjectContainers/PrincipalSpawner.tscn" type="PackedScene" id=2]
@@ -18,12 +18,293 @@
 [ext_resource path="res://asset/music/partA(intro).wav" type="AudioStream" id=16]
 [ext_resource path="res://asset/music/partB(rush).wav" type="AudioStream" id=17]
 [ext_resource path="res://asset/music/partA(after_rush).wav" type="AudioStream" id=18]
+[ext_resource path="res://asset/prop/Arrow Shield.png" type="Texture" id=19]
+[ext_resource path="res://asset/prop/torcia_da_parete.png" type="Texture" id=20]
+[ext_resource path="res://asset/soundeffects/VOX/rush_hour.wav" type="AudioStream" id=21]
+[ext_resource path="res://asset/prop/Barrel.png" type="Texture" id=22]
+[ext_resource path="res://asset/prop/Foglio 1.png" type="Texture" id=23]
+[ext_resource path="res://asset/prop/Foglio 2.png" type="Texture" id=24]
+[ext_resource path="res://asset/prop/Vase.png" type="Texture" id=25]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 18.5, 12 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5.5, 11.25 )
 
 [node name="TestItem" type="Node2D"]
 script = ExtResource( 15 )
 
 [node name="Mappa" parent="." instance=ExtResource( 8 )]
 position = Vector2( 151, 231 )
+
+[node name="PropUnder" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="PropUnder"]
+position = Vector2( 333, 593 )
+rotation = 0.344647
+texture = ExtResource( 23 )
+
+[node name="Sprite2" type="Sprite" parent="PropUnder"]
+position = Vector2( 708, 648 )
+rotation = -0.707079
+texture = ExtResource( 23 )
+
+[node name="Sprite3" type="Sprite" parent="PropUnder"]
+position = Vector2( 420, 695 )
+rotation = -1.63535
+texture = ExtResource( 23 )
+
+[node name="Sprite4" type="Sprite" parent="PropUnder"]
+position = Vector2( 811, 629 )
+rotation = -0.688463
+texture = ExtResource( 24 )
+
+[node name="Sprite5" type="Sprite" parent="PropUnder"]
+position = Vector2( 229, 694 )
+rotation = 0.228643
+texture = ExtResource( 24 )
+
+[node name="Sprite6" type="Sprite" parent="PropUnder"]
+position = Vector2( 194, 668 )
+rotation = -2.12377
+texture = ExtResource( 23 )
+
+[node name="Sprite7" type="Sprite" parent="PropUnder"]
+position = Vector2( 580, 698 )
+texture = ExtResource( 22 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PropUnder/Sprite7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PropUnder/Sprite7/StaticBody2D"]
+position = Vector2( 2, -1.00006 )
+shape = SubResource( 1 )
+
+[node name="Sprite8" type="Sprite" parent="PropUnder"]
+position = Vector2( 194, 626 )
+texture = ExtResource( 22 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="PropUnder/Sprite8"]
+position = Vector2( 386, 72.0001 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PropUnder/Sprite8/StaticBody2D2"]
+position = Vector2( -383, -72.0001 )
+shape = SubResource( 1 )
+
+[node name="Sprite9" type="Sprite" parent="PropUnder"]
+position = Vector2( 389, 698 )
+texture = ExtResource( 22 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="PropUnder/Sprite9"]
+position = Vector2( 191, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PropUnder/Sprite9/StaticBody2D2"]
+position = Vector2( -189.5, -2.00006 )
+shape = SubResource( 1 )
+
+[node name="Sprite10" type="Sprite" parent="PropUnder"]
+position = Vector2( 197, 81 )
+texture = ExtResource( 25 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="PropUnder/Sprite10"]
+position = Vector2( 191, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PropUnder/Sprite10/StaticBody2D2"]
+position = Vector2( -189.5, -2.00006 )
+shape = SubResource( 1 )
+
+[node name="Sprite12" type="Sprite" parent="PropUnder"]
+position = Vector2( 220, 81 )
+texture = ExtResource( 22 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="PropUnder/Sprite12"]
+position = Vector2( 191, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PropUnder/Sprite12/StaticBody2D2"]
+position = Vector2( -189.5, -2.00006 )
+shape = SubResource( 1 )
+
+[node name="Sprite13" type="Sprite" parent="PropUnder"]
+position = Vector2( 192, 96 )
+texture = ExtResource( 25 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="PropUnder/Sprite13"]
+position = Vector2( 191, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PropUnder/Sprite13/StaticBody2D2"]
+position = Vector2( -189.5, -2.00006 )
+shape = SubResource( 1 )
+
+[node name="Sprite14" type="Sprite" parent="PropUnder"]
+position = Vector2( 210, 88 )
+texture = ExtResource( 22 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="PropUnder/Sprite14"]
+position = Vector2( 191, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PropUnder/Sprite14/StaticBody2D2"]
+position = Vector2( -189.5, -2.00006 )
+shape = SubResource( 1 )
+
+[node name="Sprite15" type="Sprite" parent="PropUnder"]
+position = Vector2( 255, 52 )
+texture = ExtResource( 19 )
+flip_h = true
+
+[node name="Sprite19" type="Sprite" parent="PropUnder"]
+position = Vector2( 215, 52 )
+texture = ExtResource( 19 )
+
+[node name="Sprite16" type="Sprite" parent="PropUnder"]
+position = Vector2( 295, 52 )
+texture = ExtResource( 19 )
+
+[node name="Sprite17" type="Sprite" parent="PropUnder"]
+position = Vector2( 335, 52 )
+texture = ExtResource( 19 )
+flip_h = true
+
+[node name="Sprite18" type="Sprite" parent="PropUnder"]
+position = Vector2( 375, 52 )
+texture = ExtResource( 19 )
+
+[node name="Sprite20" type="Sprite" parent="PropUnder"]
+position = Vector2( 199, 140 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 20 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PropUnder/Sprite20"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PropUnder/Sprite20/StaticBody2D"]
+position = Vector2( -4.5, 3.25 )
+shape = SubResource( 2 )
+
+[node name="Sprite21" type="Sprite" parent="PropUnder"]
+position = Vector2( 199, 200 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 20 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PropUnder/Sprite21"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PropUnder/Sprite21/StaticBody2D"]
+position = Vector2( -4.5, 3.25 )
+shape = SubResource( 2 )
+
+[node name="Sprite22" type="Sprite" parent="PropUnder"]
+position = Vector2( 199, 260 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 20 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PropUnder/Sprite22"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PropUnder/Sprite22/StaticBody2D"]
+position = Vector2( -4.5, 3.25 )
+shape = SubResource( 2 )
+
+[node name="Sprite23" type="Sprite" parent="PropUnder"]
+position = Vector2( 199, 320 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 20 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PropUnder/Sprite23"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PropUnder/Sprite23/StaticBody2D"]
+position = Vector2( -4.5, 3.25 )
+shape = SubResource( 2 )
+
+[node name="Sprite24" type="Sprite" parent="PropUnder"]
+position = Vector2( 199, 380 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 20 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PropUnder/Sprite24"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PropUnder/Sprite24/StaticBody2D"]
+position = Vector2( -4.5, 3.25 )
+shape = SubResource( 2 )
+
+[node name="Sprite25" type="Sprite" parent="PropUnder"]
+position = Vector2( 199, 440 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 20 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PropUnder/Sprite25"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PropUnder/Sprite25/StaticBody2D"]
+position = Vector2( -4.5, 3.25 )
+shape = SubResource( 2 )
+
+[node name="Sprite26" type="Sprite" parent="PropUnder"]
+position = Vector2( 807, 140 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 20 )
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PropUnder/Sprite26"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PropUnder/Sprite26/StaticBody2D"]
+position = Vector2( 2.5, 0 )
+shape = SubResource( 2 )
+
+[node name="Sprite27" type="Sprite" parent="PropUnder"]
+position = Vector2( 807, 200 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 20 )
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PropUnder/Sprite27"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PropUnder/Sprite27/StaticBody2D"]
+position = Vector2( 2.5, 3.25 )
+shape = SubResource( 2 )
+
+[node name="Sprite28" type="Sprite" parent="PropUnder"]
+position = Vector2( 807, 260 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 20 )
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PropUnder/Sprite28"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PropUnder/Sprite28/StaticBody2D"]
+position = Vector2( 2.5, 3.25 )
+shape = SubResource( 2 )
+
+[node name="Sprite29" type="Sprite" parent="PropUnder"]
+position = Vector2( 807, 320 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 20 )
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PropUnder/Sprite29"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PropUnder/Sprite29/StaticBody2D"]
+position = Vector2( 2.5, 3.25 )
+shape = SubResource( 2 )
+
+[node name="Sprite30" type="Sprite" parent="PropUnder"]
+position = Vector2( 807, 380 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 20 )
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PropUnder/Sprite30"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PropUnder/Sprite30/StaticBody2D"]
+position = Vector2( 2.5, 3.25 )
+shape = SubResource( 2 )
+
+[node name="Sprite31" type="Sprite" parent="PropUnder"]
+position = Vector2( 807, 440 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 20 )
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PropUnder/Sprite31"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PropUnder/Sprite31/StaticBody2D"]
+position = Vector2( 3, 3.5 )
+shape = SubResource( 2 )
 
 [node name="DishExposer" parent="." instance=ExtResource( 6 )]
 position = Vector2( 599.68, 567.981 )
@@ -111,8 +392,8 @@ exposer_path2 = NodePath("../DishExposer2")
 [node name="SpawnerEroi" parent="." instance=ExtResource( 10 )]
 min_wait_time = 1.0
 max_wait_time = 7.5
-rushHour_treshold = 7.0
-wave_dim = 50
+rushHour_treshold = 2.5
+wave_dim = 40
 menu_path = NodePath("../MenuController")
 spawnEdges = PoolVector2Array( 423, -40, 550, -40 )
 destEdges = PoolVector2Array( 407, 528, 600, 528 )
@@ -129,6 +410,8 @@ position = Vector2( -30, -50 )
 
 [node name="RushHour" parent="." instance=ExtResource( 13 )]
 position = Vector2( 290, 38 )
+rush_hour_start_sound = ExtResource( 21 )
+rush_hour_end_sound = ExtResource( 18 )
 rush_hour_emitter_path = NodePath("../SpawnerEroi")
 
 [node name="RoomMusicHandler" parent="." instance=ExtResource( 14 )]

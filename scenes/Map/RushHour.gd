@@ -1,5 +1,7 @@
 extends Node2D
 
+export var rush_hour_start_sound : AudioStream
+export var rush_hour_end_sound : AudioStream
 
 export var rush_hour_emitter_path: NodePath 
 onready var rush_hour_emitter = get_node(rush_hour_emitter_path)
@@ -28,6 +30,7 @@ func on_rush_start():
 	rush_hour_sprite.visible = true
 	flicker_timer_process.start()
 	flicker_timer.start()
+	rush_hour_sound.stream = rush_hour_start_sound
 	rush_hour_sound.play()
 
 
@@ -35,6 +38,8 @@ func on_rush_end():
 	is_rush = false
 	flicker_timer_process.start()
 	flicker_timer.start()
+	rush_hour_sound.stream = rush_hour_end_sound
+	rush_hour_sound.play()
 	
 
 
