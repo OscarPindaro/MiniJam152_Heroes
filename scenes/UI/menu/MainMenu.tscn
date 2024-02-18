@@ -102,7 +102,10 @@ texture = ExtResource( 2 )
 
 [node name="CommandOverlay" parent="." instance=ExtResource( 1 )]
 visible = false
-margin_right = -165.0
+margin_left = 193.0
+margin_top = 4.0
+margin_right = -155.0
+margin_bottom = 1.0
 
 [node name="CommandsText" parent="CommandOverlay" index="0"]
 margin_left = 110.0
@@ -111,11 +114,11 @@ margin_right = 578.0
 margin_bottom = 798.0
 custom_fonts/font = SubResource( 2 )
 text = "In this game, your objective is to serve delicious food to a horde of heros.
-Every hero comes from a different race or background that will determine their preferences on food.
+Every hero comes from a different species or background that will determine their preferences on food.
 
 The restaurant is split into two areas:
 - The dining room, where heroes come and express their preferences. If you are close enough, you may even be able to know their specific tastes.
-- The kitchen, where food is prepared and cooked. A dish consists of a main ingredients (meat, fish, eggplant or mushrooms), a preparation (fried, diced or grilled) and a side (salad, tomatoes or french fries). 
+- The kitchen, where food is prepared and cooked. A dish consists of a main ingredient (meat, fish, eggplant or mushrooms), a preparation (fried, diced or grilled) and a side (salad, tomatoes or french fries). 
 
 KEYS
 WASD / Arrow Keys: Move 
@@ -133,7 +136,10 @@ text = "Close"
 
 [node name="CreditsOverlay" parent="." instance=ExtResource( 1 )]
 visible = false
-margin_right = -168.0
+margin_left = 193.0
+margin_top = 4.0
+margin_right = -158.0
+margin_bottom = 1.0
 
 [node name="CommandsText" parent="CreditsOverlay" index="0"]
 margin_left = 100.0
@@ -141,7 +147,7 @@ margin_top = 20.0
 margin_right = 585.0
 margin_bottom = 668.0
 custom_fonts/font = SubResource( 4 )
-text = "This game is brought you by the amazing stuff of the Wauhaus
+text = "This game is brought you by the amazing staff of the Wauhaus
 
 Developers:
 - GoblinNasuto

@@ -21,9 +21,6 @@ script = ExtResource( 13 )
 [node name="Mappa" parent="." instance=ExtResource( 8 )]
 position = Vector2( 151, 231 )
 
-[node name="TrashBin" parent="." instance=ExtResource( 1 )]
-position = Vector2( 199, 694 )
-
 [node name="DishExposer" parent="." instance=ExtResource( 6 )]
 position = Vector2( 599.68, 567.981 )
 baloonSide = "right"
@@ -36,6 +33,9 @@ position = Vector2( 802, 641 )
 movement_speed = 300
 kitchen_path = NodePath("../Stanze/KitchenArea")
 restaurant_path = NodePath("../Stanze/RestarurantArea")
+
+[node name="TrashBin" parent="." instance=ExtResource( 1 )]
+position = Vector2( 199, 694 )
 
 [node name="Sides" type="Node2D" parent="."]
 position = Vector2( -175, -98 )
