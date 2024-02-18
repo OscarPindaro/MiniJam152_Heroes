@@ -22,10 +22,7 @@ var base_zoom = Vector2.ZERO
 
 var was_moving : bool
 
-#ref AudioStreamPlayer
 var heroStep 
-var playerStep
-var foodInteracion
 
 func _ready():
 	# Subscribe to all _hero_entered and _hero_exited signals
@@ -39,9 +36,7 @@ func _ready():
 	#base_zoom = $PlayerCamera.zoom
 	$AnimatedSprite.animation = "idle_down"
 	
-	heroStep = get_node("HeroStep")
-	playerStep = get_node("PlayerStep")
-	foodInteracion = get_node("FoodInteraction")
+	heroStep = get_node("AudioStreamPlayer2D")
 	
 func _process(_delta):
 	
@@ -56,12 +51,7 @@ func _process(_delta):
 		var input = interactables[0]._player_interact(heldItem)
 		self.add_item(input)
 	
-	if was_moving == true:
-#		playerStep.play()
-		pass
-	else:
-		playerStep.stop()
-
+	
 func _physics_process(_delta):
 	
 	if(not inMain):
@@ -114,7 +104,6 @@ func _physics_process(_delta):
 		
 func add_item(item : Item):
 	if(item != null):
-		print("aggiunto item")
 		$ItemAnchor.add_child(item)
 		item.position = Vector2.ZERO	
 	heldItem = item
@@ -134,9 +123,8 @@ func exit_area(area):
 # 	interactable.connect("body_entered", self, "enter_area")
 # 	interactable.connect("body_exited", self, "exit_area")
 
-
 func on_player_enter():
-	if heroStep.volume_db < 50:
+	if heroStep.volume_db < 30:
 		heroStep.volume_db += 10
 	
 func on_player_exit():

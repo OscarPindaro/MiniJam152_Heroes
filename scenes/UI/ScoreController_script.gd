@@ -6,6 +6,7 @@ onready var GoldPile_node = $GoldPile
 
 export var score = 10.0
 export var menu_path: NodePath
+export var ending_scene = ""
 
 var Menu_node = null
 var hero_count = 0
@@ -33,9 +34,11 @@ func _on_hero_score(newscore):
 	score += newscore
 	hero_count += 1
 	Score_node.set_text("Coins: " + str(score))
-	GoldPile_node.set_frame(score)
 	_check_if_sound_and_which()
 	
+	GoldPile_node.switch_frame(score)
+	if score <= 0:
+		get_tree().change_scene(ending_scene)
 
 func _check_if_sound_and_which():
 	var temp = int(score) % 10 == 0	
