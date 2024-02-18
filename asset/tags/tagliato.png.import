@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/melanzane.png-b9e6e6c2c23fb11a7a7f6059dd3236d1.stex"
+path="res://.import/tagliato.png-dc4b64caace5487086cc8c4c7c95376b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/tags/melanzane.png"
-dest_files=[ "res://.import/melanzane.png-b9e6e6c2c23fb11a7a7f6059dd3236d1.stex" ]
+source_file="res://asset/tags/tagliato.png"
+dest_files=[ "res://.import/tagliato.png-dc4b64caace5487086cc8c4c7c95376b.stex" ]
 
 [params]
 

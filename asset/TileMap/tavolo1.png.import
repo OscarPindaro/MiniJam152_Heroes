@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Goblin down anim-Sheet.png-a40ba620d7ca6a7596dd664d9d47c3cf.stex"
+path="res://.import/tavolo1.png-47067e715f594aeb90fd1e1397e1d664.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/player/cuoco/Goblin down anim-Sheet.png"
-dest_files=[ "res://.import/Goblin down anim-Sheet.png-a40ba620d7ca6a7596dd664d9d47c3cf.stex" ]
+source_file="res://asset/TileMap/tavolo1.png"
+dest_files=[ "res://.import/tavolo1.png-47067e715f594aeb90fd1e1397e1d664.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -91,3 +91,5 @@ scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "80g"
 script = ExtResource( 11 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

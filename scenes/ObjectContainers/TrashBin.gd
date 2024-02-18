@@ -4,10 +4,11 @@ extends StaticBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+var audioInteractionTrashBin
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	audioInteractionTrashBin = get_node("AudioStreamPlayer2D")
 	pass # Replace with function body.
 
 func _player_interact(item: Item) -> Item:
@@ -15,6 +16,7 @@ func _player_interact(item: Item) -> Item:
 		return null
 	# delete the item
 	item.queue_free()
+	audioInteractionTrashBin.play()
 	return null
 	
 

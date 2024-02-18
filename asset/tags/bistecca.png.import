@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/crudo.png-ec81ff8292c21b9bb4aaa37c9d06646b.stex"
+path="res://.import/bistecca.png-ca3ce29236df3f17eee7886513bf85c3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/tags/crudo.png"
-dest_files=[ "res://.import/crudo.png-ec81ff8292c21b9bb4aaa37c9d06646b.stex" ]
+source_file="res://asset/tags/bistecca.png"
+dest_files=[ "res://.import/bistecca.png-ca3ce29236df3f17eee7886513bf85c3.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/funghi.png-fb979d7a889929bc0463467197f22ad9.stex"
+path="res://.import/griglia.png-01d2fafad474f3659433339072c5db17.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/tags/funghi.png"
-dest_files=[ "res://.import/funghi.png-fb979d7a889929bc0463467197f22ad9.stex" ]
+source_file="res://asset/tags/griglia.png"
+dest_files=[ "res://.import/griglia.png-01d2fafad474f3659433339072c5db17.stex" ]
 
 [params]
 
