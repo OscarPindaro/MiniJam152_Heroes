@@ -10,6 +10,7 @@ export var flicker_duration: float = 2
 onready var rush_hour_sprite: Sprite = $RushHourSign
 onready var flicker_timer: Timer = $FlickerTimer
 onready var flicker_timer_process: Timer = $FlickerPeriodTimer
+onready var rush_hour_sound: AudioStreamPlayer = $AudioStreamPlayer
 
 var is_flikering = false
 var is_rush : bool = false
@@ -27,6 +28,7 @@ func on_rush_start():
 	rush_hour_sprite.visible = true
 	flicker_timer_process.start()
 	flicker_timer.start()
+	rush_hour_sound.play()
 
 
 func on_rush_end():
