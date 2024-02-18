@@ -109,7 +109,7 @@ margin_right = 578.0
 margin_bottom = 798.0
 custom_fonts/font = SubResource( 2 )
 text = "In this game, your objective is to serve delicious food to a horde of heros.
-Every hero comes from a different race or background that will determine their preferences on food.
+Every hero comes from a different species or background that will determine their preferences on food.
 
 The restaurant is split into two areas:
 - The dining room, where heroes come and express their preferences. If you are close enough, you may even be able to know their specific tastes.
