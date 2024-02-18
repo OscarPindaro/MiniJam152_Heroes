@@ -22,6 +22,8 @@ var base_zoom = Vector2.ZERO
 
 var was_moving : bool
 
+var heroStep 
+
 func _ready():
 	# Subscribe to all _hero_entered and _hero_exited signals
 	# var interactableAreas = get_tree().get_nodes_in_group("interactable")
@@ -33,7 +35,9 @@ func _ready():
 	# Get camera zoom
 	#base_zoom = $PlayerCamera.zoom
 	$AnimatedSprite.animation = "idle_down"
-
+	
+	heroStep = get_node("AudioStreamPlayer2D")
+	
 func _process(_delta):
 	
 	#print(interactables)
@@ -118,3 +122,12 @@ func exit_area(area):
 # func connect_runtime_interactable(interactable):
 # 	interactable.connect("body_entered", self, "enter_area")
 # 	interactable.connect("body_exited", self, "exit_area")
+
+
+func on_player_enter():
+	if heroStep.volume_db < 30:
+		heroStep.volume_db += 10
+	
+func on_player_exit():
+	heroStep.volume_db -= 10
+	
