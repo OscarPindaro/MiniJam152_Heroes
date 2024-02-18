@@ -289,10 +289,12 @@ script = ExtResource( 1 )
 visible = false
 frames = SubResource( 9 )
 animation = "idle"
+speed_scale = 2.0
 
 [node name="CookSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 78 )
 animation = "move_up"
+speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 12 )
