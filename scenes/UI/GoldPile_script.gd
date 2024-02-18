@@ -5,7 +5,7 @@ func _ready():
 	pass # Replace with function body.
 
 func switch_frame(score: float):
-	
+	print(score)
 	if (score <= 10):
 		self.animation = '10g'
 	if (score >10 && score <= 20):
