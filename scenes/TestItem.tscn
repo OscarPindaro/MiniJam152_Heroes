@@ -18,9 +18,6 @@ position = Vector2( 151, 329 )
 
 [node name="Principals" type="Node2D" parent="."]
 position = Vector2( -47, -1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="PrincipalSpawner" parent="Principals" instance=ExtResource( 2 )]
 position = Vector2( 854, 793 )
@@ -39,9 +36,6 @@ main = "fungo"
 
 [node name="Cookings" type="Node2D" parent="."]
 position = Vector2( -128, 0 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CookingSpawner" parent="Cookings" instance=ExtResource( 3 )]
 position = Vector2( 679, 782 )
@@ -57,9 +51,6 @@ cooking = "tagliato"
 
 [node name="Sides" type="Node2D" parent="."]
 position = Vector2( -175, 0 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="SideDishSpawner" parent="Sides" instance=ExtResource( 4 )]
 position = Vector2( 535, 792 )

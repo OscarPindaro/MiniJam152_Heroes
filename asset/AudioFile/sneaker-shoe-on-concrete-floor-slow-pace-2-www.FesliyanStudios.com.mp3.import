@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sneaker-shoe-on-concrete-floor-slow-pace-2-www.FesliyanStudios.com.mp3-2700c958823f5336bb4be08cc09bd34e.mp3str"
+
+[deps]
+
+source_file="res://asset/AudioFile/sneaker-shoe-on-concrete-floor-slow-pace-2-www.FesliyanStudios.com.mp3"
+dest_files=[ "res://.import/sneaker-shoe-on-concrete-floor-slow-pace-2-www.FesliyanStudios.com.mp3-2700c958823f5336bb4be08cc09bd34e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

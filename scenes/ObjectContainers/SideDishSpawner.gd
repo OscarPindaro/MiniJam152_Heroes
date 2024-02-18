@@ -10,8 +10,11 @@ onready var anim_sprite: AnimatedSprite = $AnimatedSprite
 
 var side_list = ['pomodoro', 'insalata', 'patate']
 
+var audioInteractionSide
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	audioInteractionSide = get_node("AudioStreamPlayer2D")
 	load_ingredient()
 
 func set_side_dish(new_side_dish):
@@ -33,6 +36,7 @@ func _player_interact(item: Item) -> Item:
 		if item.Side != null:
 			return item
 		item.set_side(side_dish)
+		audioInteractionSide.play()
 		return item
 	return item
 
