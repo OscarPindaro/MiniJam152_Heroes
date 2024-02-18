@@ -29,7 +29,7 @@ func _on_hero_score(newscore):
 	score += newscore
 	hero_count += 1
 	Score_node.set_text("Coins: " + str(score))
-	GoldPile_node.set_frame(score)
+	GoldPile_node.switch_frame(score)
 	
 
 	
