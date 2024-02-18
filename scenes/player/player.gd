@@ -60,6 +60,7 @@ func _process(_delta):
 		$ItemAnchor.remove_child(heldItem)
 		var input = interactables[0]._player_interact(heldItem)
 		self.add_item(input)
+		$InteractButton.visible = false
 	
 
 func _physics_process(_delta):
@@ -121,8 +122,22 @@ func add_item(item : Item):
 func enter_area(area):
 	print(area)
 	if area.is_in_group("interactable"):
-		interactables.push_front(area)
-		$InteractButton.visible = true
+		if heldItem == null:
+			if area.is_in_group("principalSpawner"):
+				interactables.push_front(area)
+				$InteractButton.visible = true
+		elif area.is_in_group("trash"):
+			interactables.push_front(area)
+			$InteractButton.visible = true
+		elif area.is_in_group("cookingSpawner") && (heldItem.Main != null && heldItem.Cooking == null && heldItem.Side == null):
+			interactables.push_front(area)
+			$InteractButton.visible = true
+		elif area.is_in_group("sideDishSpawner") && (heldItem.Main != null && heldItem.Cooking != null && heldItem.Side == null):
+			interactables.push_front(area)
+			$InteractButton.visible = true
+		elif area.is_in_group("dishExposer") && (heldItem.Main != null && heldItem.Cooking != null && heldItem.Side != null):
+			interactables.push_front(area)
+			$InteractButton.visible = true
 
 func exit_area(area):
 	interactables.erase(area)

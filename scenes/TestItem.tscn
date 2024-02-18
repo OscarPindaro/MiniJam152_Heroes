@@ -33,7 +33,7 @@ position = Vector2( 407.129, 568.363 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 802, 641 )
-movement_speed = 350
+movement_speed = 300
 kitchen_path = NodePath("../Stanze/KitchenArea")
 restaurant_path = NodePath("../Stanze/RestarurantArea")
 
@@ -105,11 +105,13 @@ exposer_path1 = NodePath("../DishExposer")
 exposer_path2 = NodePath("../DishExposer2")
 
 [node name="SpawnerEroi" parent="." instance=ExtResource( 10 )]
-min_wait_time = 0.2
+min_wait_time = 1.0
+max_wait_time = 7.5
+rushHour_treshold = 2.5
 wave_dim = 50
 menu_path = NodePath("../MenuController")
 spawnEdges = PoolVector2Array( 423, -40, 550, -40 )
-destEdges = PoolVector2Array( 407, 544, 600, 544 )
+destEdges = PoolVector2Array( 407, 528, 600, 528 )
 exitPoints = PoolVector2Array( 823, 550, 183, 550 )
 
 [node name="Stanze" type="Node2D" parent="."]
