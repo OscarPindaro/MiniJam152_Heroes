@@ -13,7 +13,7 @@
 [ext_resource path="res://scenes/Map/KitchenArea.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Map/RestaurantArea.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/TestItem.gd" type="Script" id=13]
-[ext_resource path="res://asset/music/partA.wav" type="AudioStream" id=14]
+[ext_resource path="res://asset/music/partA(intro).wav" type="AudioStream" id=14]
 
 [node name="TestItem" type="Node2D"]
 script = ExtResource( 13 )
@@ -125,4 +125,3 @@ position = Vector2( -30, -50 )
 
 [node name="MainMenuTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
-bus = "GameMusic"
