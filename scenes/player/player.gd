@@ -3,6 +3,12 @@ extends KinematicBody2D
 
 # Player movement speed in pixels/sec
 export var movement_speed = 300
+onready var sprite = $CookSprite
+# Door logic
+export var kitchen_path: NodePath
+export var restaurant_path: NodePath
+var kitchen_node = null
+var restaurant_node = null
 
 # Player velocity
 var velocity
@@ -30,11 +36,14 @@ func _ready():
 	# for i in range(0, interactableAreas.size()):
 	# 	interactableAreas[i].connect("body_entered", self, "enter_area")
 	# 	interactableAreas[i].connect("body_exited", self, "exit_area")
-	
+	kitchen_node = get_node(kitchen_path)
+	restaurant_node = get_node(restaurant_path)
+	restaurant_node.connect('body_entered', self, '_on_restaurant_step')
+	kitchen_node.connect('body_entered', self, '_on_kitchen_step')
 	was_moving = false
 	# Get camera zoom
 	#base_zoom = $PlayerCamera.zoom
-	$AnimatedSprite.animation = "idle_down"
+	sprite.animation = "idle"
 	
 	heroStep = get_node("AudioStreamPlayer2D")
 	
@@ -84,7 +93,7 @@ func _physics_process(_delta):
 	
 	
 	# Animations
-	var sprite = $AnimatedSprite
+
 	if target_velocity == Vector2.ZERO:
 		sprite.animation = "idle"
 	elif target_velocity.x > 0:
@@ -130,4 +139,20 @@ func on_player_enter():
 	
 func on_player_exit():
 	heroStep.volume_db -= 10
+	
+	
+func _on_kitchen_step(body):
+	print('cucina')
+	sprite.hide()
+	sprite = $CookSprite
+	sprite.show()
+
+func _on_restaurant_step(body):
+	print('ristorante')
+	sprite.hide()
+	sprite = $WaiterSprite
+	sprite.show()
+	
+	
+	
 	

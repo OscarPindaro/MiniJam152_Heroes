@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/retro_teca.png-760730e294c32d2be9e87b4a1802c583.stex"
+path="res://.import/Goblin down Idle.png-a0c4230a715cce34908ac25d00536208.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/Item/retro_teca.png"
-dest_files=[ "res://.import/retro_teca.png-760730e294c32d2be9e87b4a1802c583.stex" ]
+source_file="res://asset/player/cuoco/Goblin down Idle.png"
+dest_files=[ "res://.import/Goblin down Idle.png-a0c4230a715cce34908ac25d00536208.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

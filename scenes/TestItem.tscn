@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/ObjectContainers/TrashBin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/ObjectContainers/PrincipalSpawner.tscn" type="PackedScene" id=2]
@@ -10,15 +10,16 @@
 [ext_resource path="res://scenes/Mappa.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/ObjectContainers/MenuController.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/eroi/spawner_eroi.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/UI/menu/EndScene.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Map/KitchenArea.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Map/RestaurantArea.tscn" type="PackedScene" id=12]
 
 [node name="TestItem" type="Node2D"]
 
 [node name="Mappa" parent="." instance=ExtResource( 8 )]
-position = Vector2( 151, 329 )
+position = Vector2( 151, 231 )
 
 [node name="Principals" type="Node2D" parent="."]
-position = Vector2( -47, -1 )
+position = Vector2( -47, -99 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -39,7 +40,7 @@ position = Vector2( 710, 793 )
 main = "fungo"
 
 [node name="Cookings" type="Node2D" parent="."]
-position = Vector2( -128, 0 )
+position = Vector2( -128, -98 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -57,7 +58,7 @@ position = Vector2( 583, 782 )
 cooking = "tagliato"
 
 [node name="Sides" type="Node2D" parent="."]
-position = Vector2( -175, 0 )
+position = Vector2( -175, -98 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -75,23 +76,25 @@ position = Vector2( 439, 792 )
 side_dish = "patate"
 
 [node name="TrashBin" parent="." instance=ExtResource( 1 )]
-position = Vector2( 199, 792 )
-
-[node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 726, 761 )
-scale = Vector2( 2, 2 )
-movement_speed = 200
+position = Vector2( 199, 694 )
 
 [node name="DishExposer" parent="." instance=ExtResource( 6 )]
-position = Vector2( 583, 685 )
+position = Vector2( 599.68, 567.981 )
 
 [node name="DishExposer2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 423, 685 )
+position = Vector2( 407.129, 568.363 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 802, 641 )
+movement_speed = 200
+kitchen_path = NodePath("../Stanze/KitchenArea")
+restaurant_path = NodePath("../Stanze/RestarurantArea")
 
 [node name="ScoreController" parent="." instance=ExtResource( 7 )]
+position = Vector2( 0, -98 )
 score = 1.0
 menu_path = NodePath("../MenuController")
-ending_scene = ExtResource( 11 )
+ending_scene = "res://scenes/UI/menu/EndScene.tscn"
 
 [node name="MenuController" parent="." instance=ExtResource( 9 )]
 exposer_path1 = NodePath("../DishExposer")
@@ -101,6 +104,15 @@ exposer_path2 = NodePath("../DishExposer2")
 min_wait_time = 0.2
 wave_dim = 50
 menu_path = NodePath("../MenuController")
-spawnEdges = PoolVector2Array( 250, 100, 750, 100 )
-destEdges = PoolVector2Array( 250, 650, 750, 650 )
-exitPoints = PoolVector2Array( 500, 50 )
+spawnEdges = PoolVector2Array( 423, -40, 550, -40 )
+destEdges = PoolVector2Array( 407, 544, 600, 544 )
+exitPoints = PoolVector2Array( 823, 550, 183, 550 )
+
+[node name="Stanze" type="Node2D" parent="."]
+
+[node name="RestarurantArea" parent="Stanze" instance=ExtResource( 12 )]
+position = Vector2( -62, -86 )
+scale = Vector2( 1.15593, 1.19116 )
+
+[node name="KitchenArea" parent="Stanze" instance=ExtResource( 11 )]
+position = Vector2( -30, -50 )
