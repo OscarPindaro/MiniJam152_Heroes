@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/ObjectContainers/TrashBin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/ObjectContainers/PrincipalSpawner.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/Mappa.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/ObjectContainers/MenuController.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/eroi/spawner_eroi.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/UI/menu/EndScene.tscn" type="PackedScene" id=11]
 
 [node name="TestItem" type="Node2D"]
 
@@ -88,7 +89,9 @@ position = Vector2( 583, 685 )
 position = Vector2( 423, 685 )
 
 [node name="ScoreController" parent="." instance=ExtResource( 7 )]
+score = 1.0
 menu_path = NodePath("../MenuController")
+ending_scene = ExtResource( 11 )
 
 [node name="MenuController" parent="." instance=ExtResource( 9 )]
 exposer_path1 = NodePath("../DishExposer")
