@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grigliato.png-e5f76c68398fb585c57a8829b9c1544f.stex"
+path="res://.import/pomodoro.png-8b3b01d68709c09660d4373a66064d27.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/tags/grigliato.png"
-dest_files=[ "res://.import/grigliato.png-e5f76c68398fb585c57a8829b9c1544f.stex" ]
+source_file="res://asset/tags/pomodoro.png"
+dest_files=[ "res://.import/pomodoro.png-8b3b01d68709c09660d4373a66064d27.stex" ]
 
 [params]
 
