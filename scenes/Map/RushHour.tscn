@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/Map/RushHour.gd" type="Script" id=1]
 [ext_resource path="res://asset/Map/rush_hour2.png" type="Texture" id=2]
+[ext_resource path="res://asset/soundeffects/VOX/rush_hour.wav" type="AudioStream" id=3]
 
 [node name="RushHour" type="Node2D"]
 script = ExtResource( 1 )
@@ -15,6 +16,9 @@ wait_time = 0.5
 [node name="FlickerPeriodTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="timeout" from="FlickerTimer" to="." method="_on_FlickerTimer_timeout"]
 [connection signal="timeout" from="FlickerPeriodTimer" to="." method="_on_FlickerPeriodTimer_timeout"]
