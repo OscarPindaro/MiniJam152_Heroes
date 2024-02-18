@@ -82,10 +82,10 @@ scale = Vector2( 2, 2 )
 movement_speed = 200
 
 [node name="DishExposer" parent="." instance=ExtResource( 6 )]
-position = Vector2( 583, 685 )
+position = Vector2( 599.68, 665.981 )
 
 [node name="DishExposer2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 423, 685 )
+position = Vector2( 407.129, 666.363 )
 
 [node name="ScoreController" parent="." instance=ExtResource( 7 )]
 menu_path = NodePath("../MenuController")
