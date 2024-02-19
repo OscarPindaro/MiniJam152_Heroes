@@ -27,7 +27,8 @@ config/icon="res://icon.png"
 [display]
 
 window/size/height=719
-window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [global]
 
