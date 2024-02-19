@@ -82,7 +82,7 @@ margin_left = 344.0
 margin_top = 444.0
 margin_right = 721.0
 margin_bottom = 484.0
-text = "Commands . . . . . . 8c"
+text = "How to play . . . . . 8c"
 
 [node name="CreditsButton" type="Button" parent="."]
 margin_left = 333.0
@@ -116,16 +116,14 @@ margin_top = 73.0
 margin_right = 578.0
 margin_bottom = 798.0
 custom_fonts/font = SubResource( 2 )
-text = "In this game, your objective is to serve delicious food to a horde of heros.
-Every hero comes from a different species or background that will determine their preferences on food.
+text = "Your objective is to serve delicious food to a horde of heroes. Each hero has different preferences on food based on their species and random chance: you can see them by getting close enough to them.
 
-The restaurant is split into two areas:
-- The dining room, where heroes come and express their preferences. If you are close enough, you may even be able to know their specific tastes.
-- The kitchen, where food is prepared and cooked. A dish consists of a main ingredient (meat, fish, eggplant or mushrooms), a preparation (fried, diced or grilled) and a side (salad, tomatoes or french fries). 
+When an hero reaches the counter, if one of the dishes satisfies AT LEAST ONE of its preferences it will buy it. If none of its preferences are satisfied, it will STEAL from you in a fit of rage. When your coins reach zero, you lose.
 
-KEYS
+To create a dish gather one MAIN INGRIDIENT (meat, fish. eggplants or mushrooms), prepare it in a STATION (fried, grilled, diced), add a SIDE (salad, tomatoes, fries) and DISPLAY it on one of the exposers on the counter.
+
 WASD / Arrow Keys: Move 
-E / J: interact with objects"
+E / J: Interact"
 valign = 0
 
 [node name="Close" parent="CommandOverlay" index="1"]
