@@ -147,25 +147,25 @@ position = Vector2( -189.5, -2.00006 )
 shape = SubResource( 1 )
 
 [node name="Sprite15" type="Sprite" parent="PropUnder"]
-position = Vector2( 255, 52 )
+position = Vector2( 244, 52 )
 texture = ExtResource( 19 )
 flip_h = true
 
 [node name="Sprite19" type="Sprite" parent="PropUnder"]
-position = Vector2( 215, 52 )
+position = Vector2( 204, 52 )
 texture = ExtResource( 19 )
 
 [node name="Sprite16" type="Sprite" parent="PropUnder"]
-position = Vector2( 295, 52 )
+position = Vector2( 284, 52 )
 texture = ExtResource( 19 )
 
 [node name="Sprite17" type="Sprite" parent="PropUnder"]
-position = Vector2( 335, 52 )
+position = Vector2( 324, 52 )
 texture = ExtResource( 19 )
 flip_h = true
 
 [node name="Sprite18" type="Sprite" parent="PropUnder"]
-position = Vector2( 375, 52 )
+position = Vector2( 364, 52 )
 texture = ExtResource( 19 )
 
 [node name="Sprite20" type="Sprite" parent="PropUnder"]
@@ -408,6 +408,7 @@ scale = Vector2( 1.15593, 1.19116 )
 position = Vector2( -30, -50 )
 
 [node name="RushHour" parent="." instance=ExtResource( 13 )]
+visible = false
 position = Vector2( 290, 38 )
 rush_hour_start_sound = ExtResource( 21 )
 rush_hour_end_sound = ExtResource( 18 )
